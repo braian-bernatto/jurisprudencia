@@ -30,7 +30,7 @@ export default function Home() {
           <Entidad />
         </div>
         <Filtro />
-        <div className='w-full px-5 sm:px-0'>
+        <div className='w-full flex justify-center px-5 sm:px-0'>
           <Listado />
         </div>
       </main>
