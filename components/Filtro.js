@@ -2,10 +2,10 @@ import React from 'react'
 
 const Filtro = () => {
   return (
-    <div className='w-full flex flex-wrap gap-2 justify-around items-center'>
+    <div className='w-full flex flex-wrap gap-3 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800'>
       <span className='flex w-full justify-center items-center'>
         <form
-          className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-lg border border-opacity-75 border-gray-300 rounded-lg px-3 sm:px-5 py-2'
+          className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-lg border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2'
           onSubmit={e => {
             e.preventDefault()
           }}
@@ -88,7 +88,7 @@ const Filtro = () => {
         <button
           aria-label='button'
           type='submit'
-          className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition hover:scale-105 mt-5 bg-white dark:bg-gray-700 dark:border-none'
+          className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition-transform hover:scale-105 bg-white dark:bg-gray-700 dark:border-none'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

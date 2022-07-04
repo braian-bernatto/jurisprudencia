@@ -4,6 +4,7 @@ import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Listado from '../components/Listado'
 import appContext from '../context/app/appContext'
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
           <Entidad />
         </div>
         <Filtro />
+        <Listado />
       </main>
       <Footer />
     </div>
