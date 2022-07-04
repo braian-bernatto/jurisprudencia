@@ -19,7 +19,7 @@ const Entidad = () => {
       <span className='w-full border-b'></span>
       <div className='w-full text-xs flex flex-col gap-6 mt-5'>
         <div className='relative flex flex-col justify-center items-center'>
-          <h2 className='absolute -top-4 shadow border dark:border-none rounded-t bg-white dark:bg-gray-500 px-1 z-0'>
+          <h2 className='absolute -top-4 dark:-top-3.5 shadow border dark:border-none rounded-t bg-white dark:bg-white dark:text-gray-700 px-1 z-0'>
             Presidente
           </h2>
           <span className='font-semibold shadow border dark:border-none rounded-full px-2 z-10 bg-white dark:bg-gray-600'>
@@ -28,7 +28,7 @@ const Entidad = () => {
         </div>
 
         <div className='relative flex flex-col justify-center items-center'>
-          <h2 className='absolute -top-4 shadow rounded-t border dark:border-none bg-white dark:bg-gray-500 px-1 z-0'>
+          <h2 className='absolute -top-4 dark:-top-3.5 shadow rounded-t border dark:border-none bg-white dark:bg-white dark:text-gray-700 px-1 z-0'>
             Vice Presidente
           </h2>
           <span className='font-semibold shadow border dark:border-none rounded-full px-2 z-10 bg-white dark:bg-gray-600'>
@@ -37,7 +37,7 @@ const Entidad = () => {
         </div>
 
         <div className='relative flex flex-col justify-center items-center'>
-          <h2 className='absolute -top-4 shadow rounded-t border dark:border-none bg-white px-1 z-0 dark:bg-gray-500'>
+          <h2 className='absolute -top-4 dark:-top-3.5 shadow rounded-t border dark:border-none bg-white px-1 z-0 dark:bg-white dark:text-gray-700'>
             Vocal
           </h2>
           <span className='font-semibold shadow border dark:border-none rounded-full px-2 z-10 bg-white dark:bg-gray-600'>

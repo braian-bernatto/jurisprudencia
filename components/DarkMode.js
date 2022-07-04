@@ -13,6 +13,7 @@ const DarkMode = () => {
           name=''
           id='checkbox'
           className='hidden'
+          checked={theme === 'dark' ? true : false}
           onChange={e => {
             e.target.checked ? setTheme('dark') : setTheme('light')
           }}

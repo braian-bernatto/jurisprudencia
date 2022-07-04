@@ -5,7 +5,7 @@ const Filtro = () => {
     <div className='w-full flex flex-wrap gap-2 justify-around items-center'>
       <span className='flex w-full justify-center items-center'>
         <form
-          className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-lg border border-opacity-75 border-gray-300 rounded-lg px-3 sm:px-6 py-2 sm:py-3'
+          className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-lg border border-opacity-75 border-gray-300 rounded-lg px-3 sm:px-5 py-2'
           onSubmit={e => {
             e.preventDefault()
           }}
