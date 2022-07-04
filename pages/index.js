@@ -22,8 +22,12 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main className='flex flex-col w-full justify-center items-center mt-5'>
-        <Entidad />
+      <main className='flex flex-col w-full justify-center items-center mt-5 gap-4'>
+        <div className='flex flex-wrap gap-3 justify-center items-center'>
+          <Entidad />
+          <Entidad />
+          <Entidad />
+        </div>
         <Filtro />
       </main>
       <Footer />

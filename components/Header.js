@@ -3,7 +3,7 @@ import DarkMode from './DarkMode'
 
 const Header = () => {
   return (
-    <div className='flex w-full items-center justify-between p-5 relative bg-gray-100 dark:bg-gray-700 rounded-2xl'>
+    <div className='flex w-full items-center justify-between mt-2 px-2 py-1 relative border-b dark:border-none bg-white dark:bg-gray-700 rounded shadow-lg'>
       <span className='rounded-full border-2 p-1 border-teal-500'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
