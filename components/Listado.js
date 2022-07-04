@@ -2,7 +2,7 @@ import React from 'react'
 
 const Listado = () => {
   return (
-    <section className='overflow-y-auto overflow-x-auto overflow-hidden rounded-md border dark:border-none shadow-md w-full lg:w-3/4 dark:shadow-gray-800'>
+    <div className='overflow-y-auto overflow-x-auto overflow-hidden rounded-md border dark:border-none shadow-md w-full lg:w-3/4 dark:shadow-gray-800'>
       <table className='w-full border-collapse table-auto whitespace-no-wrap bg-white dark:bg-gray-700 text-xs'>
         <thead className='bg-gray-200 dark:bg-gray-700 sticky top-0 z-10'>
           <tr>
@@ -76,7 +76,7 @@ const Listado = () => {
           </tr>
         </tbody>
       </table>
-    </section>
+    </div>
   )
 }
 

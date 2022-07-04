@@ -30,7 +30,9 @@ export default function Home() {
           <Entidad />
         </div>
         <Filtro />
-        <Listado />
+        <div className='w-full px-5 sm:px-0'>
+          <Listado />
+        </div>
       </main>
       <Footer />
     </div>

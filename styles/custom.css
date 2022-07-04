@@ -1,10 +1,10 @@
 #checkbox:checked + label .switch-ball {
   background-color: white;
   transform: translateX(20px);
-  transition: transform 0.3s linear;
+  transition: transform 0.1s linear;
 }
 
 #checkbox + label .switch-ball {
   transform: translateX(0);
-  transition: transform 0.3s linear;
+  transition: transform 0.1s linear;
 }
