@@ -47,7 +47,7 @@ const Listado = () => {
               </svg>
             </td>
           </tr>
-          <tr className='dark:bg-gray-600 border-b'>
+          <tr className='dark:bg-gray-600'>
             <td className='pl-2'>Auto Interlocutorio</td>
             <td className='pl-2'>144</td>
             <td className='pl-2'>01/02/2022</td>

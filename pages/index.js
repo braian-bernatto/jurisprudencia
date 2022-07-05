@@ -1,16 +1,25 @@
 import Head from 'next/head'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
 import appContext from '../context/app/appContext'
+import { Document, Page, pdfjs } from 'react-pdf'
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 export default function Home() {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
   const { darkMode, darkModeOn } = AppContext
+
+  const [numPages, setNumPages] = useState(null)
+  const [pageNumber, setPageNumber] = useState(1)
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages)
+  }
 
   return (
     <div className='container mx-auto'>
@@ -32,6 +41,28 @@ export default function Home() {
         <Filtro />
         <div className='w-full flex justify-center px-5 sm:px-0'>
           <Listado />
+        </div>
+
+        <div className='w-full flex flex-col justify-center items-center relative'>
+          <Document
+            file={'./uploads/git.pdf'}
+            onLoadSuccess={onDocumentLoadSuccess}
+            className='rounded-xl overflow-hidden shadow-md'
+          >
+            <Page pageNumber={pageNumber} />
+          </Document>
+
+          <div className='absolute top-5 rounded-full shadow-md bg-white flex gap-1'>
+            <button className='bg-white flex flex-col items-center font-bold w-5 rounded-l-full hover:bg-gray-300'>
+              ‹
+            </button>
+            <span className='bg-white'>
+              {pageNumber} de {numPages}
+            </span>
+            <button className='bg-white flex flex-col items-center font-bold w-5 rounded-r-full hover:bg-gray-300'>
+              ›
+            </button>
+          </div>
         </div>
       </main>
       <Footer />
