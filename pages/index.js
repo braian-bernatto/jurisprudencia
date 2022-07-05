@@ -43,11 +43,11 @@ export default function Home() {
           <Listado />
         </div>
 
-        <div className='w-full flex flex-col justify-center items-center relative'>
+        <div className='w-full flex flex-col justify-center items-center relative overflow-x-auto px-5'>
           <Document
             file={'./uploads/git.pdf'}
             onLoadSuccess={onDocumentLoadSuccess}
-            className='rounded-xl overflow-hidden shadow-md'
+            className='rounded-xl overflow-hidden overflow-x-auto shadow-md w-full sm:w-auto'
           >
             <Page pageNumber={pageNumber} />
           </Document>

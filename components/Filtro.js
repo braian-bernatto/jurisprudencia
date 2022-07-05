@@ -2,7 +2,7 @@ import React from 'react'
 
 const Filtro = () => {
   return (
-    <div className='w-full flex flex-wrap gap-2 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800'>
+    <div className='w-full max-w-6xl flex flex-wrap gap-2 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800'>
       <span className='flex w-full justify-center items-center'>
         <form
           className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800'
