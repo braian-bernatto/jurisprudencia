@@ -15,7 +15,7 @@ const PdfDocument = () => {
       <Document
         file={'./uploads/react.pdf'}
         onLoadSuccess={onDocumentLoadSuccess}
-        className='rounded-xl overflow-hidden overflow-x-auto shadow-md w-full sm:w-auto'
+        className='rounded-lg overflow-hidden overflow-x-auto shadow-md w-full sm:w-auto'
       >
         <Page pageNumber={pageNumber} />
       </Document>
