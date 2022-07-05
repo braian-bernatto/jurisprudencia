@@ -43,7 +43,7 @@ export default function Home() {
           <Listado />
         </div>
 
-        <div className='w-full flex flex-col justify-center items-center relative overflow-x-auto px-5'>
+        <div className='w-full flex flex-col justify-center items-center relative px-5'>
           <Document
             file={'./uploads/git.pdf'}
             onLoadSuccess={onDocumentLoadSuccess}
