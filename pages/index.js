@@ -1,25 +1,17 @@
 import Head from 'next/head'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
+import PdfDocument from '../components/PdfDocument'
 import appContext from '../context/app/appContext'
-import { Document, Page, pdfjs } from 'react-pdf'
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
 
 export default function Home() {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
   const { darkMode, darkModeOn } = AppContext
-
-  const [numPages, setNumPages] = useState(null)
-  const [pageNumber, setPageNumber] = useState(1)
-
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages)
-  }
 
   return (
     <div className='container mx-auto'>
@@ -42,54 +34,7 @@ export default function Home() {
         <div className='w-full flex justify-center px-5 sm:px-0'>
           <Listado />
         </div>
-
-        <div className='w-full flex flex-col justify-center items-center relative px-5'>
-          <Document
-            file={'./uploads/git.pdf'}
-            onLoadSuccess={onDocumentLoadSuccess}
-            className='rounded-xl overflow-hidden overflow-x-auto shadow-md w-full sm:w-auto'
-          >
-            <Page pageNumber={pageNumber} />
-          </Document>
-
-          <div className='absolute top-5 rounded-full shadow-md bg-white dark:bg-gray-700 flex gap-1 h-10'>
-            <button className='font-bold w-9 flex justify-center items-center rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M15 19l-7-7 7-7'
-                />
-              </svg>
-            </button>
-            <div className='flex justify-center items-center'>
-              {pageNumber} de {numPages}
-            </div>
-            <button className='font-bold w-9 flex items-center justify-center rounded-r-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-6 w-6'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M9 5l7 7-7 7'
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
+        <PdfDocument />
       </main>
       <Footer />
     </div>
