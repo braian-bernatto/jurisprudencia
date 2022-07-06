@@ -8,3 +8,8 @@
   transform: translateX(0);
   transition: transform 0.1s linear;
 }
+
+.react-pdf__Page__canvas {
+  width: 600px !important;
+  height: 100% !important;
+}

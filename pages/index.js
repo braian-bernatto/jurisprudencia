@@ -34,8 +34,8 @@ export default function Home() {
         <div className='w-full flex justify-center px-5 sm:px-0'>
           <Listado />
         </div>
-        <PdfDocument />
       </main>
+      <PdfDocument />
       <Footer />
     </div>
   )
