@@ -1,12 +1,13 @@
 import Head from 'next/head'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import appContext from '../context/app/appContext'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
 import PdfDocument from '../components/PdfDocument'
-import appContext from '../context/app/appContext'
+import PdfViewer from '../components/PdfViewer'
 
 export default function Home() {
   // extraer state de aplicacion
@@ -35,8 +36,7 @@ export default function Home() {
           <Listado />
         </div>
       </main>
-      <PdfDocument />
-      <Footer />
+      <PdfViewer />
     </div>
   )
 }

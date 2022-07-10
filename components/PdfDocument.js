@@ -11,7 +11,7 @@ const PdfDocument = () => {
   }
 
   return (
-    <div className='min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-50 min-h-screen fixed overflow-auto'>
+    <div className='min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-50 min-h-screen  overflow-auto'>
       <span className='fixed w-full bg-white opacity-50 min-h-screen'></span>
       <Document
         file={'./uploads/react.pdf'}
