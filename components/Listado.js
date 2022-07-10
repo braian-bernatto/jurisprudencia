@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import appContext from '../context/app/appContext'
 
 const Listado = () => {
+  // extraer state de aplicacion
+  const AppContext = useContext(appContext)
+  const { modalPdf, openModalPdf } = AppContext
+
   return (
     <div className='overflow-y-auto overflow-x-auto overflow-hidden rounded-md border dark:border-none shadow-md w-full lg:w-3/4 dark:shadow-gray-800'>
       <table className='w-full border-collapse table-auto whitespace-no-wrap bg-white dark:bg-gray-700 text-xs'>
@@ -31,7 +36,12 @@ const Listado = () => {
             <td className='pl-2'>Hace lugar</td>
             <td className='pl-2'>TSJE</td>
             <td className='pl-2'>Un análisis interesante</td>
-            <td className='pl-2 cursor-pointer text-center hover:text-teal-600'>
+            <td
+              className='pl-2 cursor-pointer text-center hover:text-teal-600'
+              onClick={() => {
+                openModalPdf(!modalPdf)
+              }}
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-5 w-5 hover:scale-125'
@@ -58,7 +68,12 @@ const Listado = () => {
             <td className='pl-2'>Hace lugar</td>
             <td className='pl-2'>Tribunal Electoral Capital</td>
             <td className='pl-2'>Un análisis interesante</td>
-            <td className='pl-2 cursor-pointer text-center hover:text-teal-600'>
+            <td
+              className='pl-2 cursor-pointer text-center hover:text-teal-600'
+              onClick={() => {
+                openModalPdf(!modalPdf)
+              }}
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-5 w-5 hover:scale-125'

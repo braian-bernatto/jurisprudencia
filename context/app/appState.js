@@ -1,19 +1,19 @@
 import appContext from './appContext'
 import React, { useEffect, useReducer } from 'react'
 import appReducer from './appReducer'
-import { DARK_MODE } from '../../types'
+import { MODAL_PDF } from '../../types'
 
 const AppState = ({ children }) => {
   const initialState = {
-    darkMode: false
+    modalPdf: false
   }
 
   //definir reducer
   const [state, dispatch] = useReducer(appReducer, initialState)
 
-  const darkModeOn = estado => {
+  const openModalPdf = estado => {
     dispatch({
-      type: DARK_MODE,
+      type: MODAL_PDF,
       payload: estado
     })
   }
@@ -21,8 +21,8 @@ const AppState = ({ children }) => {
   return (
     <appContext.Provider
       value={{
-        darkMode: state.darkMode,
-        darkModeOn
+        modalPdf: state.modalPdf,
+        openModalPdf
       }}
     >
       {children}

@@ -14,15 +14,15 @@ const PdfDocument = () => {
     <div className='fixed min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-50 min-h-screen  overflow-auto'>
       <span className='fixed w-full bg-white opacity-50 min-h-screen'></span>
       <Document
-        file={'./uploads/clas.pdf'}
+        file={'./uploads/clas2.pdf'}
         onLoadSuccess={onDocumentLoadSuccess}
         className='rounded-lg shadow-md relative flex justify-center pdf-document'
-        renderTextLayer={false}
       >
         <Page
           pageNumber={pageNumber}
           className='rounded-lg overflow-hidden'
           scale={4}
+          renderTextLayer={false}
         />
         <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-10'>
           <button className='font-bold w-9 flex justify-center items-center rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>

@@ -1,17 +1,17 @@
 import Head from 'next/head'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import appContext from '../context/app/appContext'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
-import PdfDocument from '../components/PdfDocument'
+import PdfViewer from '../components/PdfViewer'
 
 export default function Home() {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { darkMode, darkModeOn } = AppContext
+  const { modalPdf, openModalPdf } = AppContext
 
   return (
     <div className='container mx-auto'>
@@ -35,17 +35,7 @@ export default function Home() {
           <Listado />
         </div>
       </main>
-      <object
-        data='/uploads/clas.pdf'
-        type='application/pdf'
-        className='h-screen w-full rounded-xl shadow-md'
-      >
-        <p>
-          Alternative text - include a link{' '}
-          <a href='http://africau.edu/images/default/sample.pdf'>to the PDF!</a>
-        </p>
-      </object>
-      <PdfDocument />
+      {modalPdf && <PdfViewer />}
       <Footer />
     </div>
   )

@@ -1,11 +1,11 @@
-import { DARK_MODE } from '../../types'
+import { MODAL_PDF } from '../../types'
 
 export default (state, action) => {
   switch (action.type) {
-    case DARK_MODE:
+    case MODAL_PDF:
       return {
         ...state,
-        darkMode: action.payload
+        modalPdf: action.payload
       }
 
     default:
