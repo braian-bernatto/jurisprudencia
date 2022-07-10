@@ -12,7 +12,7 @@ const PdfViewer = () => {
       <iframe
         src='/uploads/clas2.pdf'
         className='w-full h-screen rounded-xl shadow-2xl z-40 relative'
-      ></iframe>
+      />
       <button
         className='rounded-full bg-white dark:bg-gray-700 p-2 absolute top-5 z-50 shadow-md opacity-40 hover:opacity-100 transition'
         onClick={() => {
