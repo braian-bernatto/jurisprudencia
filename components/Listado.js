@@ -37,14 +37,14 @@ const Listado = () => {
             <td className='pl-2'>TSJE</td>
             <td className='pl-2'>Un análisis interesante</td>
             <td
-              className='pl-2 cursor-pointer text-center hover:text-teal-600'
+              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2'
               onClick={() => {
                 openModalPdf(!modalPdf)
               }}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 hover:scale-125'
+                className='h-10 w-10 hover:scale-125'
                 viewBox='0 0 20 20'
                 fill='currentColor'
               >
@@ -69,14 +69,14 @@ const Listado = () => {
             <td className='pl-2'>Tribunal Electoral Capital</td>
             <td className='pl-2'>Un análisis interesante</td>
             <td
-              className='pl-2 cursor-pointer text-center hover:text-teal-600'
+              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2'
               onClick={() => {
                 openModalPdf(!modalPdf)
               }}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 hover:scale-125'
+                className='h-10 w-10 hover:scale-125'
                 viewBox='0 0 20 20'
                 fill='currentColor'
               >
