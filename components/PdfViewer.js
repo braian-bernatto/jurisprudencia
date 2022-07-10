@@ -10,7 +10,7 @@ const PdfViewer = () => {
     <div className='fixed min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-40 min-h-screen  overflow-auto p-3 sm:p-20'>
       <span className='fixed w-full bg-gray-400 opacity-95 min-h-screen'></span>
       <iframe
-        src='/uploads/clas2.pdf'
+        src='/uploads/clas2.pdf#view=fitH'
         className='w-full h-screen rounded-xl shadow-2xl z-40 relative'
       />
       <button

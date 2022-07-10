@@ -23,3 +23,7 @@
 .pdf-document:hover .buttons {
   opacity: 1;
 }
+
+iframe {
+  width: 100% !important;
+}
