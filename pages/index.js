@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
 import PdfDocument from '../components/PdfDocument'
-import PdfViewer from '../components/PdfViewer'
 
 export default function Home() {
   // extraer state de aplicacion
@@ -36,7 +35,18 @@ export default function Home() {
           <Listado />
         </div>
       </main>
-      <PdfViewer />
+      <object
+        data='/uploads/clas.pdf'
+        type='application/pdf'
+        className='h-screen w-full rounded-xl shadow-md'
+      >
+        <p>
+          Alternative text - include a link{' '}
+          <a href='http://africau.edu/images/default/sample.pdf'>to the PDF!</a>
+        </p>
+      </object>
+      <PdfDocument />
+      <Footer />
     </div>
   )
 }
