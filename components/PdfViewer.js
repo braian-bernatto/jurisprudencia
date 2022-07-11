@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 import appContext from '../context/app/appContext'
 
 const PdfViewer = () => {
@@ -6,22 +7,51 @@ const PdfViewer = () => {
   const AppContext = useContext(appContext)
   const { modalPdf, openModalPdf } = AppContext
 
+  const viewer = useRef(null)
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    import('@pdftron/pdfjs-express-viewer').then(() => {
+      WebViewer(
+        {
+          path: '/webviewer/lib',
+          initialDoc: '/uploads/clas.pdf',
+          licenseKey: 'HNU9U4B0OSf7nNoYYLWR'
+        },
+        viewer.current
+      ).then(instance => {
+        // now you can access APIs through the WebViewer instance
+        const { Core } = instance
+        instance.setTheme(theme)
+
+        // adding an event listener for when a document is loaded
+        Core.documentViewer.addEventListener('documentLoaded', () => {
+          console.log('document loaded')
+        })
+
+        // adding an event listener for when the page number has changed
+        Core.documentViewer.addEventListener(
+          'pageNumberUpdated',
+          pageNumber => {
+            console.log(`Page number is: ${pageNumber}`)
+          }
+        )
+      })
+    })
+  }, [])
+
   return (
-    <div className='fixed min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-40 min-h-screen  overflow-auto p-3 sm:p-20'>
-      <span className='fixed w-full bg-gray-400 opacity-95 min-h-screen'></span>
-      <iframe
-        src='/uploads/clas2.pdf#view=fitH'
-        className='w-full h-screen rounded-xl shadow-2xl z-40 relative'
-      />
+    <div className='min-w-full flex flex-col justify-center items-center top-0 bottom-0 left-0 z-40 min-h-screen fixed overflow-auto p-4 sm:p-10'>
+      <span className='fixed w-full bg-gray-400 opacity-90 min-h-screen'></span>
       <button
-        className='rounded-full bg-white dark:bg-gray-700 p-2 absolute top-5 z-50 shadow-md opacity-40 hover:opacity-100 transition'
+        className='z-50 rounded-full p-4 bg-white dark:bg-gray-700 shadow-md absolute scale-75 sm:scale-100 top-0 sm:top-2 opacity-50 hover:opacity-100 transition'
         onClick={() => {
           openModalPdf(!modalPdf)
         }}
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-10 w-10'
+          className='h-7 w-7'
           fill='none'
           viewBox='0 0 24 24'
           stroke='currentColor'
@@ -34,6 +64,10 @@ const PdfViewer = () => {
           />
         </svg>
       </button>
+      <div
+        className='webviewer z-40 h-screen w-full rounded-xl mt-5 sm:mt-0'
+        ref={viewer}
+      ></div>
     </div>
   )
 }
