@@ -53,7 +53,7 @@ const PdfDocument = () => {
           renderTextLayer={false}
           width='200'
         />
-        <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-12 border'>
+        <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-12'>
           <button className='font-bold w-12 flex justify-center items-center rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
