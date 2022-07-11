@@ -17,10 +17,10 @@ const PdfDocument = () => {
 
   return (
     <div className='fixed min-w-0 w-full top-0 bottom-0 left-0 z-50 min-h-screen overflow-auto py-10'>
-      <span className='fixed w-full bg-gray-700 opacity-50 min-h-screen top-0'></span>
+      <span className='fixed w-full bg-white dark:bg-gray-700 opacity-95 min-h-screen top-0'></span>
       <span className='w-full flex items-center justify-center'>
         <button
-          className='z-50 rounded-full p-3 bg-white dark:text-gray-700 shadow-md absolute top-1 sm:top-2 opacity-50 hover:opacity-100 transition'
+          className='z-50 rounded-full p-3 bg-white dark:text-gray-700 shadow-md absolute top-1 sm:top-2 opacity-50 border hover:opacity-100 transition'
           onClick={() => {
             openModalPdf(!modalPdf)
           }}
@@ -48,7 +48,7 @@ const PdfDocument = () => {
       >
         <Page
           pageNumber={pageNumber}
-          className='rounded-2xl overflow-hidden shadow-lg bg-teal-500'
+          className='rounded-2xl overflow-hidden shadow-2xl border'
           scale={4}
           renderTextLayer={false}
           width='200'
