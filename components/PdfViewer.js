@@ -15,8 +15,8 @@ const PdfViewer = () => {
       WebViewer(
         {
           path: '/webviewer/lib',
-          initialDoc: '/uploads/react.pdf',
-          licenseKey: 'HNU9U4B0OSf7nNoYYLWR'
+          licenseKey: 'HNU9U4B0OSf7nNoYYLWR',
+          initialDoc: '/uploads/react.pdf'
         },
         viewer.current
       ).then(instance => {

@@ -7,6 +7,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
 import PdfViewer from '../components/PdfViewer'
+import PdfDocument from '../components/PdfDocument'
 
 export default function Home() {
   // extraer state de aplicacion
@@ -35,7 +36,7 @@ export default function Home() {
           <Listado />
         </div>
       </main>
-      {modalPdf && <PdfViewer />}
+      {modalPdf && <PdfDocument />}
       <Footer />
     </div>
   )
