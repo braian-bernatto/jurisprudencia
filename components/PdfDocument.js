@@ -53,11 +53,11 @@ const PdfDocument = () => {
           renderTextLayer={false}
           width='200'
         />
-        <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-10'>
-          <button className='font-bold w-9 flex justify-center items-center rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>
+        <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-12 border'>
+          <button className='font-bold w-12 flex justify-center items-center rounded-l-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6'
+              className='h-7 w-7'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
@@ -77,14 +77,14 @@ const PdfDocument = () => {
             {pageNumber} de {numPages}
           </div>
           <button
-            className='font-bold w-9 flex items-center justify-center rounded-r-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'
+            className='font-bold w-12 flex items-center justify-center rounded-r-full hover:bg-gray-300 dark:hover:bg-gray-800 text-center'
             onClick={() => {
               pageNumber < numPages ? setPageNumber(pageNumber + 1) : null
             }}
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6'
+              className='h-7 w-7'
               fill='none'
               viewBox='0 0 24 24'
               stroke='currentColor'
