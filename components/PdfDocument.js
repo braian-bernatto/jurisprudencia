@@ -2,11 +2,12 @@ import { useContext, useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
 import appContext from '../context/app/appContext'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+import Spinner from './Spinner'
 
 const PdfDocument = () => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { modalPdf, openModalPdf } = AppContext
+  const { modalPdf, urlPdf, openModalPdf } = AppContext
 
   const [numPages, setNumPages] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
@@ -42,9 +43,11 @@ const PdfDocument = () => {
         </button>
       </span>
       <Document
-        file={'./uploads/clas2.pdf'}
+        file={Spinner}
         onLoadSuccess={onDocumentLoadSuccess}
         className='rounded-xl relative flex justify-center pdf-document'
+        loading={Spinner}
+        noData={'No existe PDF asignado'}
       >
         <Page
           pageNumber={pageNumber}

@@ -1,4 +1,4 @@
-import { MODAL_PDF } from '../../types'
+import { MODAL_PDF, URL_PDF } from '../../types'
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ export default (state, action) => {
       return {
         ...state,
         modalPdf: action.payload
+      }
+    case URL_PDF:
+      return {
+        ...state,
+        urlPdf: action.payload
       }
 
     default:
