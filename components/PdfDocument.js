@@ -51,7 +51,7 @@ const PdfDocument = () => {
       >
         <Page
           pageNumber={pageNumber}
-          className='rounded-2xl overflow-hidden shadow-2xl border'
+          className='rounded-2xl overflow-hidden shadow-2xl border dark:border-none'
           scale={4}
           renderTextLayer={false}
           width='200'

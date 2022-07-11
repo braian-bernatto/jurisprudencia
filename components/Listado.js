@@ -27,7 +27,7 @@ const Listado = () => {
         <tbody>
           <tr className='dark:bg-gray-600 border-b'>
             <td
-              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2'
+              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2 transition'
               onClick={() => {
                 urlPdfHandler('./uploads/git.pdf')
                 openModalPdf(!modalPdf)
@@ -60,7 +60,7 @@ const Listado = () => {
           </tr>
           <tr className='dark:bg-gray-600 border-b'>
             <td
-              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2'
+              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2 transition'
               onClick={() => {
                 urlPdfHandler('./uploads/clas2.pdf')
                 openModalPdf(!modalPdf)
@@ -93,7 +93,7 @@ const Listado = () => {
           </tr>
           <tr className='dark:bg-gray-600'>
             <td
-              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2'
+              className='pl-2 cursor-pointer text-center hover:text-teal-600 p-2 transition'
               onClick={() => {
                 urlPdfHandler('./uploads/react.pdf')
                 openModalPdf(!modalPdf)

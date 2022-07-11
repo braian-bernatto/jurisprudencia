@@ -79,3 +79,13 @@
     transform: scale(1);
   }
 }
+
+select::after {
+  content: 'hello';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  color: white;
+}

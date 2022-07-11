@@ -50,7 +50,7 @@ const Filtro = () => {
         <label className='mr-4' htmlFor='year'>
           Año:{' '}
         </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent dark:shadow-teal-500 border-b-4 border-teal-600 text-center'>
+        <select className='year shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
             className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
             value='--Seleccionar--'
@@ -82,7 +82,7 @@ const Filtro = () => {
         <label className='mr-4' htmlFor='tipoResolucion'>
           Tipo de Resolución:{' '}
         </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent dark:shadow-teal-500 border-b-4 border-teal-600 text-center'>
+        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
             className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
             value='--Seleccione un tipo--'
