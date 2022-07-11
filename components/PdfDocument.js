@@ -43,7 +43,7 @@ const PdfDocument = () => {
         </button>
       </span>
       <Document
-        file={Spinner}
+        file={urlPdf}
         onLoadSuccess={onDocumentLoadSuccess}
         className='rounded-xl relative flex justify-center pdf-document'
         loading={Spinner}
