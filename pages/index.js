@@ -26,7 +26,7 @@ export default function Home() {
       </Head>
       <Header />
       <main className='flex flex-col w-full justify-center items-center mt-5 gap-4'>
-        <div className='flex flex-wrap gap-3 justify-center items-center'>
+        <div className='flex flex-wrap gap-4 justify-center items-center'>
           <Entidad />
           <Entidad />
           <Entidad />
