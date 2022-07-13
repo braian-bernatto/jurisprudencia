@@ -45,13 +45,13 @@ const PdfDocument = () => {
       <Document
         file={urlPdf}
         onLoadSuccess={onDocumentLoadSuccess}
-        className='rounded-xl relative flex justify-center'
+        className='rounded-md relative flex justify-center'
         loading={Spinner}
         noData={'No existe PDF asignado'}
       >
         <Page
           pageNumber={pageNumber}
-          className='pdf-document rounded-2xl overflow-hidden shadow-2xl border dark:border-none'
+          className='pdf-document rounded-md overflow-hidden shadow-2xl border dark:border-none'
           scale={4}
           renderTextLayer={false}
           width='200'

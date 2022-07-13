@@ -68,7 +68,7 @@ export default function Home() {
                   />
                 </svg>
               </button>
-              <ol className='flex flex-wrap p-3 justify-center items-center gap-4 overflow-auto text-xs'>
+              <ol className='flex flex-wrap p-3 justify-center items-center gap-4 overflow-auto text-xs scrollbar'>
                 <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
                   Capital y Central
                 </li>
