@@ -57,25 +57,25 @@ const Filtro = () => {
         </label>
         <select className='year shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='--Seleccionar--'
           >
             --Seleccionar--
           </option>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='1'
           >
             2022
           </option>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='2'
           >
             2021
           </option>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='3'
           >
             2020
@@ -92,19 +92,19 @@ const Filtro = () => {
         </label>
         <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='--Seleccione un tipo--'
           >
             --Seleccionar--
           </option>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='1'
           >
             Acuerdo y Sentencia
           </option>
           <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none'
+            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='2'
           >
             Auto Interlocutorio
