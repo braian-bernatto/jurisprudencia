@@ -20,7 +20,7 @@
   }
 }
 
-.pdf-document:hover .buttons {
+.pdf-document:hover ~ .buttons {
   opacity: 1;
 }
 
