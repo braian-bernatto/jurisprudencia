@@ -2,7 +2,7 @@ import React from 'react'
 
 const Filtro = () => {
   return (
-    <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
+    <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
       <span className='flex w-full justify-center items-center'>
         <form
           className='flex justify-center bg-white dark:border-gray-700 dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800 mb-5 w-80'
@@ -33,7 +33,7 @@ const Filtro = () => {
         </form>
       </span>
 
-      <div className='flex justify-center items-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+      <div className='flex justify-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
         <label
           className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
           htmlFor='nroResolucion'
