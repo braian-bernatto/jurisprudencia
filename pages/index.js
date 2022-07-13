@@ -6,13 +6,12 @@ import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
-import PdfViewer from '../components/PdfViewer'
 import PdfDocument from '../components/PdfDocument'
 
 export default function Home() {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { modalPdf, openModalPdf } = AppContext
+  const { modalPdf, modalEntidad, openModalEntidad, openModalPdf } = AppContext
 
   return (
     <div className='container mx-auto'>
@@ -26,10 +25,101 @@ export default function Home() {
       </Head>
       <Header />
       <main className='flex flex-col w-full justify-center items-center mt-5 gap-4'>
-        <div className='flex flex-wrap gap-4 justify-center items-center'>
-          <Entidad />
-          <Entidad />
-          <Entidad />
+        <div className='flex flex-wrap gap-4 justify-center items-center relative'>
+          <ul className='flex flex-wrap gap-4 justify-center items-center relative'>
+            <li>
+              <Entidad />
+            </li>
+            <li
+              onClick={() => {
+                openModalEntidad(!modalEntidad)
+              }}
+            >
+              <Entidad />
+            </li>
+            <li
+              onClick={() => {
+                openModalEntidad(!modalEntidad)
+              }}
+            >
+              <Entidad />
+            </li>
+          </ul>
+          {modalEntidad && (
+            <div className='absolute top-0 left-0 w-full bg-white dark:bg-gray-700 shadow-2xl h-full z-20 rounded-md flex justify-center'>
+              <button
+                className='z-50 rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-3 border transition'
+                onClick={() => {
+                  openModalEntidad(!modalEntidad)
+                }}
+              >
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='h-4 w-4'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M6 18L18 6M6 6l12 12'
+                  />
+                </svg>
+              </button>
+              <ol className='flex flex-wrap p-3 justify-center items-center gap-4 overflow-auto text-xs'>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Capital y Central
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Concepción y Alto Paraguay
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Guairá y Caazapá
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Itapúa
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Misiones
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Alto Paraná y Canindeyú
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Ñeembucú
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Capital y Central
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Concepción y Alto Paraguay
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Guairá y Caazapá
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Itapúa
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Misiones
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Alto Paraná y Canindeyú
+                </li>
+                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                  Ñeembucú
+                </li>
+              </ol>
+            </div>
+          )}
         </div>
         <Filtro />
         <div className='w-full flex justify-center px-5 sm:px-0'>

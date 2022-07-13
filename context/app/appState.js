@@ -1,11 +1,12 @@
 import appContext from './appContext'
-import React, { useEffect, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import appReducer from './appReducer'
-import { MODAL_PDF, URL_PDF } from '../../types'
+import { MODAL_PDF, MODAL_ENTIDAD, URL_PDF } from '../../types'
 
 const AppState = ({ children }) => {
   const initialState = {
     modalPdf: false,
+    modalEntidad: false,
     urlPdf: ''
   }
 
@@ -15,6 +16,13 @@ const AppState = ({ children }) => {
   const openModalPdf = estado => {
     dispatch({
       type: MODAL_PDF,
+      payload: estado
+    })
+  }
+
+  const openModalEntidad = estado => {
+    dispatch({
+      type: MODAL_ENTIDAD,
       payload: estado
     })
   }
@@ -30,8 +38,10 @@ const AppState = ({ children }) => {
     <appContext.Provider
       value={{
         modalPdf: state.modalPdf,
+        modalEntidad: state.modalEntidad,
         urlPdf: state.urlPdf,
         openModalPdf,
+        openModalEntidad,
         urlPdfHandler
       }}
     >

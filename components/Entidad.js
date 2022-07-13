@@ -2,7 +2,7 @@ import React from 'react'
 
 const Entidad = () => {
   return (
-    <div className='rounded-md bg-white dark:bg-gray-700 shadow-md p-3 max-w-xs flex flex-col items-center justify-center gap-1 text-xs cursor-pointer hover:scale-110 transition-transform overflow-x-auto dark:shadow-gray-800 border dark:border-gray-700'>
+    <div className='select-none rounded-md bg-white dark:bg-gray-700 shadow-md p-3 max-w-xs flex flex-col items-center justify-center gap-1 text-xs cursor-pointer hover:scale-110 transition-transform overflow-x-auto dark:shadow-gray-800 border dark:border-gray-700'>
       <span className='rounded-full border-2 p-1 border-teal-500 shadow'>
         <svg
           xmlns='http://www.w3.org/2000/svg'

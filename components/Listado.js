@@ -28,10 +28,10 @@ const Listado = () => {
         <tbody>
           <tr className='dark:bg-gray-600 border-b'>
             <td className='cursor-pointer transition text-center'>
-              <div className='flex justify-around gap-2 items-center'>
+              <div className='flex justify-around gap-2 items-center overflow-hidden'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                  className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                   viewBox='0 0 20 20'
                   fill='currentColor'
                   onClick={() => {
@@ -49,7 +49,7 @@ const Listado = () => {
                 <a href='./uploads/git.pdf' download={true}>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                    className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -77,10 +77,10 @@ const Listado = () => {
           </tr>
           <tr className='dark:bg-gray-600 border-b'>
             <td className='cursor-pointer transition text-center'>
-              <div className='flex justify-around gap-2 items-center'>
+              <div className='flex justify-around gap-2 items-center overflow-hidden'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                  className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                   viewBox='0 0 20 20'
                   fill='currentColor'
                   onClick={() => {
@@ -98,7 +98,7 @@ const Listado = () => {
                 <a href='./uploads/clas.pdf' download={true}>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                    className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -126,10 +126,10 @@ const Listado = () => {
           </tr>
           <tr className='dark:bg-gray-600'>
             <td className='cursor-pointer transition text-center'>
-              <div className='flex justify-around gap-2 items-center'>
+              <div className='flex justify-around gap-2 items-center overflow-hidden'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                  className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                   viewBox='0 0 20 20'
                   fill='currentColor'
                   onClick={() => {
@@ -147,7 +147,7 @@ const Listado = () => {
                 <a href='./uploads/react.pdf' download={true}>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='h-9 w-9 hover:scale-125 hover:text-teal-600'
+                    className='h-9 w-9 hover:scale-110 hover:text-teal-600'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'

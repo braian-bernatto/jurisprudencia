@@ -3,9 +3,9 @@ import React from 'react'
 const Spinner = () => {
   return (
     <div className='spinner'>
-      <div className='bounce1'></div>
-      <div className='bounce2'></div>
-      <div className='bounce3'></div>
+      <div className='bounce1 bg-teal-500 dark:bg-white'></div>
+      <div className='bounce2 bg-teal-500 dark:bg-white'></div>
+      <div className='bounce3 bg-teal-500 dark:bg-white'></div>
     </div>
   )
 }

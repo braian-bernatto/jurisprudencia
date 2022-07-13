@@ -2,10 +2,10 @@ import React from 'react'
 
 const Filtro = () => {
   return (
-    <div className='w-full max-w-6xl flex flex-wrap gap-2 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700'>
+    <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center items-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
       <span className='flex w-full justify-center items-center'>
         <form
-          className='flex justify-center bg-white dark:border-none dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800'
+          className='flex justify-center bg-white dark:border-gray-700 dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800 mb-5 w-80'
           onSubmit={e => {
             e.preventDefault()
           }}
@@ -28,27 +28,32 @@ const Filtro = () => {
           </button>
           <input
             type='text'
-            className='bg-transparent focus:outline-none'
-            onChange={e => {}}
+            className='bg-transparent focus:outline-none text-xl'
           />
         </form>
       </span>
 
-      <div className='flex justify-center items-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-none dark:shadow-gray-800'>
-        <label className='mr-4' htmlFor='nroResolucion'>
-          N° Resolución:{' '}
+      <div className='flex justify-center items-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+        <label
+          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+          htmlFor='nroResolucion'
+        >
+          N° Resolución
         </label>
         <input
-          className='w-20 bg-transparent font-bold border-b-4 rounded text-center border-teal-600 focus:outline-none text-lg'
+          className='z-10 w-24 bg-transparent font-bold border-b-4 rounded text-center border-teal-600 focus:outline-none text-lg'
           type='number'
           id='nroResolucion'
           name='nroResolucion'
         />
       </div>
 
-      <div className='flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-xs relative bg-white dark:border-none dark:shadow-gray-800'>
-        <label className='mr-4' htmlFor='year'>
-          Año:{' '}
+      <div className='flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-xs relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+        <label
+          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+          htmlFor='year'
+        >
+          Año
         </label>
         <select className='year shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
@@ -78,9 +83,12 @@ const Filtro = () => {
         </select>
       </div>
 
-      <div className='flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-sm relative bg-white dark:border-none dark:shadow-gray-800'>
-        <label className='mr-4' htmlFor='tipoResolucion'>
-          Tipo de Resolución:{' '}
+      <div className='flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-sm relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+        <label
+          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+          htmlFor='tipoResolucion'
+        >
+          Tipo de Resolución
         </label>
         <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
           <option
@@ -108,7 +116,7 @@ const Filtro = () => {
         <button
           aria-label='button'
           type='submit'
-          className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition-transform hover:scale-105 bg-white dark:bg-gray-700 dark:border-none dark:shadow-gray-800'
+          className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition-transform hover:scale-105 bg-white dark:bg-gray-700 dark:border-gray-700 dark:shadow-gray-800'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
