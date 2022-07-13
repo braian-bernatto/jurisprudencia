@@ -79,16 +79,6 @@
   }
 }
 
-select::after {
-  content: 'hello';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  color: white;
-}
-
 .sk-cube-grid {
   width: 40px;
   height: 40px;
@@ -163,4 +153,14 @@ select::after {
     -webkit-transform: scale3D(0, 0, 1);
     transform: scale3D(0, 0, 1);
   }
+}
+
+.select::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #047857;
+  clear: both;
 }
