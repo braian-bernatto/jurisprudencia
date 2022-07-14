@@ -180,3 +180,8 @@
   background: #0d9488;
   border-radius: 5px;
 }
+
+.selected .card {
+  transform: scale(1.1) !important;
+  border: #0d9488 solid !important;
+}

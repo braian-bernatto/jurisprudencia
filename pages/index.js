@@ -31,6 +31,7 @@ export default function Home() {
               <Entidad />
             </li>
             <li
+              className='selected'
               onClick={() => {
                 openModalEntidad(!modalEntidad)
               }}

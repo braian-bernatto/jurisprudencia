@@ -55,7 +55,7 @@ const Filtro = () => {
         >
           Año
         </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center relative'>
+        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center relative px-3'>
           <option
             className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='--Seleccionar--'
@@ -90,7 +90,7 @@ const Filtro = () => {
         >
           Tipo de Resolución
         </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center'>
+        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center px-4'>
           <option
             className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
             value='--Seleccione un tipo--'
