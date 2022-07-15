@@ -2,7 +2,8 @@ import {
   MODAL_PDF,
   MODAL_ENTIDAD,
   URL_PDF,
-  ENTIDAD_SELECTED
+  ENTIDAD_SELECTED,
+  MIEMBROS
 } from '../../types'
 
 export default (state, action) => {
@@ -29,6 +30,12 @@ export default (state, action) => {
       return {
         ...state,
         entidadSelected: action.payload
+      }
+
+    case MIEMBROS:
+      return {
+        ...state,
+        miembros: action.payload
       }
 
     default:

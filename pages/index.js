@@ -16,9 +16,11 @@ export default function Home() {
     modalPdf,
     modalEntidad,
     entidadSelected,
+    miembros,
     openModalEntidad,
     openModalPdf,
-    selectEntidad
+    selectEntidad,
+    miembrosHandler
   } = AppContext
 
   return (
@@ -32,7 +34,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main className='flex flex-col w-full justify-center items-center mt-5 gap-4'>
+      <main className='flex flex-col w-full justify-center items-center mt-10 gap-4'>
         <div className='flex flex-wrap gap-4 justify-center items-center relative'>
           <ul className='flex flex-wrap gap-4 justify-center items-center relative'>
             <li
@@ -119,7 +121,7 @@ export default function Home() {
                   />
                 </svg>
               </button>
-              <ol className='flex flex-wrap p-3 justify-center sm:justify-between items-center gap-4 overflow-auto text-xs scrollbar'>
+              <ol className='flex flex-wrap p-4 justify-center sm:justify-between items-center gap-4 overflow-auto text-xs scrollbar'>
                 <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
                   Capital y Central
                 </li>
