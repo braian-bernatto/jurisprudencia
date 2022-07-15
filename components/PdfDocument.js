@@ -7,7 +7,7 @@ import Spinner from './Spinner'
 const PdfDocument = () => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { modalPdf, urlPdf, openModalPdf } = AppContext
+  const { modalPdf, urlPdf, openModalPdf, urlPdfHandler } = AppContext
 
   const [numPages, setNumPages] = useState(null)
   const [pageNumber, setPageNumber] = useState(1)
@@ -24,6 +24,7 @@ const PdfDocument = () => {
           className='z-50 rounded-full p-3 bg-white dark:text-gray-700 shadow-md absolute top-1 sm:top-2 opacity-50 border hover:opacity-100 transition'
           onClick={() => {
             openModalPdf(!modalPdf)
+            urlPdfHandler('')
           }}
         >
           <svg
