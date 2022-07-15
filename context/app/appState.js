@@ -1,13 +1,19 @@
 import appContext from './appContext'
 import React, { useReducer } from 'react'
 import appReducer from './appReducer'
-import { MODAL_PDF, MODAL_ENTIDAD, URL_PDF } from '../../types'
+import {
+  MODAL_PDF,
+  MODAL_ENTIDAD,
+  URL_PDF,
+  ENTIDAD_SELECTED
+} from '../../types'
 
 const AppState = ({ children }) => {
   const initialState = {
     modalPdf: false,
     modalEntidad: false,
-    urlPdf: ''
+    urlPdf: '',
+    entidadSelected: ''
   }
 
   //definir reducer
@@ -34,15 +40,24 @@ const AppState = ({ children }) => {
     })
   }
 
+  const selectEntidad = entidad => {
+    dispatch({
+      type: ENTIDAD_SELECTED,
+      payload: entidad
+    })
+  }
+
   return (
     <appContext.Provider
       value={{
         modalPdf: state.modalPdf,
         modalEntidad: state.modalEntidad,
         urlPdf: state.urlPdf,
+        entidadSelected: state.entidadSelected,
         openModalPdf,
         openModalEntidad,
-        urlPdfHandler
+        urlPdfHandler,
+        selectEntidad
       }}
     >
       {children}

@@ -1,17 +1,25 @@
 import Head from 'next/head'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import appContext from '../context/app/appContext'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Listado from '../components/Listado'
+import Selected from '../components/Selected'
 import PdfDocument from '../components/PdfDocument'
 
 export default function Home() {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { modalPdf, modalEntidad, openModalEntidad, openModalPdf } = AppContext
+  const {
+    modalPdf,
+    modalEntidad,
+    entidadSelected,
+    openModalEntidad,
+    openModalPdf,
+    selectEntidad
+  } = AppContext
 
   return (
     <div className='container mx-auto'>
@@ -27,23 +35,63 @@ export default function Home() {
       <main className='flex flex-col w-full justify-center items-center mt-5 gap-4'>
         <div className='flex flex-wrap gap-4 justify-center items-center relative'>
           <ul className='flex flex-wrap gap-4 justify-center items-center relative'>
-            <li>
-              <Entidad />
+            <li
+              key={1}
+              className={`${
+                entidadSelected === 'TSJE' ? 'selected' : ''
+              } relative`}
+            >
+              <label className='flex justify-center'>
+                <input
+                  className='hidden'
+                  type='radio'
+                  value='TSJE'
+                  name='entidad'
+                  onClick={e => selectEntidad(e.target.value)}
+                />
+                <Entidad />
+                {entidadSelected === 'TSJE' ? <Selected /> : ''}
+              </label>
             </li>
             <li
-              className='selected'
+              key={2}
+              className={`${
+                entidadSelected === 'TRIBUNAL ELECTORAL' ? 'selected' : ''
+              } relative`}
+              onClick={() => openModalEntidad(!modalEntidad)}
+            >
+              <label className='flex justify-center'>
+                <input
+                  className='hidden'
+                  type='radio'
+                  value='TRIBUNAL ELECTORAL'
+                  name='entidad'
+                  onClick={e => selectEntidad(e.target.value)}
+                />
+                <Entidad />
+                {entidadSelected === 'TRIBUNAL ELECTORAL' ? <Selected /> : ''}
+              </label>
+            </li>
+            <li
+              key={3}
+              className={`${
+                entidadSelected === 'JUZGADOS' ? 'selected' : ''
+              } relative`}
               onClick={() => {
                 openModalEntidad(!modalEntidad)
               }}
             >
-              <Entidad />
-            </li>
-            <li
-              onClick={() => {
-                openModalEntidad(!modalEntidad)
-              }}
-            >
-              <Entidad />
+              <label className='flex justify-center'>
+                <input
+                  className='hidden'
+                  type='radio'
+                  value='JUZGADOS'
+                  name='entidad'
+                  onClick={e => selectEntidad(e.target.value)}
+                />
+                <Entidad />
+                {entidadSelected === 'JUZGADOS' ? <Selected /> : ''}
+              </label>
             </li>
           </ul>
           {modalEntidad && (
