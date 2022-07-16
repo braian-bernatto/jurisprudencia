@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import appContext from '../context/app/appContext'
 import Entidad from '../components/Entidad'
 import Filtro from '../components/Filtro'
@@ -17,11 +17,43 @@ export default function Home() {
     modalEntidad,
     entidadSelected,
     miembros,
+    tsje,
+    tribunal,
+    juzgado,
     openModalEntidad,
     openModalPdf,
     selectEntidad,
-    miembrosHandler
+    miembrosHandler,
+    entidadesHandler
   } = AppContext
+
+  useEffect(() => {
+    entidadesHandler({
+      type: 'TSJE',
+      data: {
+        entidadNombre: 'TSJE',
+        miembros: [
+          { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+          { nombre: 'Fernando Chavez', cargo: 'Vicepresidente' },
+          { nombre: 'Denis Caceres', cargo: 'Vocal' }
+        ]
+      }
+    })
+    entidadesHandler({
+      type: 'TRIBUNAL',
+      data: {
+        entidadNombre: 'TRIBUNAL ELECTORAL',
+        miembros: []
+      }
+    })
+    entidadesHandler({
+      type: 'JUZGADO',
+      data: {
+        entidadNombre: 'JUZGADO',
+        miembros: []
+      }
+    })
+  }, [])
 
   return (
     <div className='container mx-auto'>
@@ -36,7 +68,7 @@ export default function Home() {
       <Header />
       <main className='flex flex-col w-full justify-center items-center mt-10 gap-4'>
         <div className='flex flex-wrap gap-4 justify-center items-center relative'>
-          <ul className='flex flex-wrap gap-4 justify-center items-center relative'>
+          <ul className='flex flex-wrap gap-4 justify-center relative'>
             <li
               key={1}
               className={`relative ${
@@ -51,7 +83,7 @@ export default function Home() {
                   name='entidad'
                   onClick={e => selectEntidad(e.target.value)}
                 />
-                <Entidad />
+                {tsje && <Entidad datos={tsje} />}
                 {entidadSelected === 'TSJE' ? <Selected /> : ''}
               </label>
             </li>
@@ -72,7 +104,7 @@ export default function Home() {
                     openModalEntidad(!modalEntidad)
                   }}
                 />
-                <Entidad />
+                {tribunal && <Entidad datos={tribunal} />}
                 {entidadSelected === 'TRIBUNAL ELECTORAL' ? <Selected /> : ''}
               </label>
             </li>
@@ -93,7 +125,7 @@ export default function Home() {
                     openModalEntidad(!modalEntidad)
                   }}
                 />
-                <Entidad />
+                {juzgado && <Entidad datos={juzgado} />}
                 {entidadSelected === 'JUZGADOS' ? <Selected /> : ''}
               </label>
             </li>
@@ -122,13 +154,62 @@ export default function Home() {
                 </svg>
               </button>
               <ol className='flex flex-wrap p-4 justify-center sm:justify-between items-center gap-4 overflow-auto text-xs scrollbar'>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                <li
+                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
+                  onClick={() => {
+                    entidadesHandler({
+                      type: 'TRIBUNAL',
+                      data: {
+                        entidadNombre: 'Tribunal Electoral Capital y Central',
+                        miembros: [
+                          { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                          {
+                            nombre: 'Fernando Chavez',
+                            cargo: 'Vicepresidente'
+                          },
+                          { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                        ]
+                      }
+                    })
+                    openModalEntidad(!modalEntidad)
+                  }}
+                >
                   Capital y Central
                 </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                <li
+                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
+                  onClick={() => {
+                    entidadesHandler({
+                      type: 'TRIBUNAL',
+                      data: {
+                        entidadNombre:
+                          'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                        miembros: [
+                          { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                          { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                          { nombre: 'Kathy Caceres', cargo: 'Vocal' }
+                        ]
+                      }
+                    })
+                    openModalEntidad(!modalEntidad)
+                  }}
+                >
                   Paraguarí, Cordillera, Pdte. Hayes y Boquerón
                 </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
+                <li
+                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
+                  value={[{ nombre: 'Luis Chaco', cargo: 'Juez' }]}
+                  onClick={() => {
+                    entidadesHandler({
+                      type: 'JUZGADO',
+                      data: {
+                        entidadNombre: 'Juzgado de Concepción y Alto Paraguay',
+                        miembros: [{ nombre: 'Luis Chaco', cargo: 'Juez' }]
+                      }
+                    })
+                    openModalEntidad(!modalEntidad)
+                  }}
+                >
                   Concepción y Alto Paraguay
                 </li>
                 <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
