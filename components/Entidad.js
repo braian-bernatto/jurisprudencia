@@ -22,8 +22,11 @@ const Entidad = ({ datos }) => {
           <div className='w-full text-xs flex flex-col gap-6 mt-5'>
             {datos.miembros
               ? datos.miembros.length
-                ? datos.miembros.map(miembro => (
-                    <div className='relative flex flex-col justify-center items-center'>
+                ? datos.miembros.map((miembro, index) => (
+                    <div
+                      key={index}
+                      className='relative flex flex-col justify-center items-center'
+                    >
                       <h2 className='absolute -top-4 dark:-top-3.5 shadow border dark:border-none rounded-t bg-white dark:bg-white dark:text-gray-700 px-1 z-0'>
                         {miembro.cargo}
                       </h2>
