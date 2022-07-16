@@ -2,7 +2,7 @@ import React from 'react'
 
 const Selected = () => {
   return (
-    <span className='rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-4 border transition'>
+    <span className='rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-6 border transition'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         className='h-4 w-4'

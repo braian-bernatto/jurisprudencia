@@ -3,8 +3,8 @@ import React from 'react'
 const Entidad = ({ datos }) => {
   return (
     <>
-      <div className='w-full flex justify-center relative mt-2'>
-        <div className='card select-none rounded-md bg-white dark:bg-gray-700 shadow-md p-3 w-36 flex flex-col items-center justify-center gap-1 text-xs cursor-pointer hover:scale-110 transition-transform overflow-x-auto dark:shadow-gray-800 border dark:border-gray-700 relative'>
+      <div className='w-full flex justify-center relative'>
+        <div className='card select-none rounded-md bg-white dark:bg-gray-700 shadow-md p-3 w-40 flex flex-col items-center justify-center gap-1 text-xs cursor-pointer hover:scale-110 transition-transform overflow-x-auto dark:shadow-gray-800 border dark:border-gray-700 relative'>
           <span className='rounded-full border-2 p-1 border-teal-500 shadow'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

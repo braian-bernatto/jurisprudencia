@@ -16,14 +16,12 @@ export default function Home() {
     modalPdf,
     modalEntidad,
     entidadSelected,
-    miembros,
     tsje,
     tribunal,
     juzgado,
     openModalEntidad,
     openModalPdf,
     selectEntidad,
-    miembrosHandler,
     entidadesHandler
   } = AppContext
 
@@ -81,7 +79,11 @@ export default function Home() {
                   type='radio'
                   value='TSJE'
                   name='entidad'
-                  onClick={e => selectEntidad(e.target.value)}
+                  onClick={e =>
+                    selectEntidad(
+                      e.target.value === entidadSelected ? '' : e.target.value
+                    )
+                  }
                 />
                 {tsje && <Entidad datos={tsje} />}
                 {entidadSelected === 'TSJE' ? <Selected /> : ''}
@@ -100,8 +102,18 @@ export default function Home() {
                   value='TRIBUNAL ELECTORAL'
                   name='entidad'
                   onClick={e => {
-                    selectEntidad(e.target.value)
-                    openModalEntidad(!modalEntidad)
+                    selectEntidad(
+                      e.target.value === entidadSelected ? '' : e.target.value
+                    )
+                    e.target.value === entidadSelected
+                      ? entidadesHandler({
+                          type: 'TRIBUNAL',
+                          data: {
+                            entidadNombre: 'TRIBUNAL ELECTORAL',
+                            miembros: []
+                          }
+                        })
+                      : openModalEntidad(!modalEntidad)
                   }}
                 />
                 {tribunal && <Entidad datos={tribunal} />}
@@ -121,8 +133,18 @@ export default function Home() {
                   value='JUZGADOS'
                   name='entidad'
                   onClick={e => {
-                    selectEntidad(e.target.value)
-                    openModalEntidad(!modalEntidad)
+                    selectEntidad(
+                      e.target.value === entidadSelected ? '' : e.target.value
+                    )
+                    e.target.value === entidadSelected
+                      ? entidadesHandler({
+                          type: 'JUZGADO',
+                          data: {
+                            entidadNombre: 'JUZGADO',
+                            miembros: []
+                          }
+                        })
+                      : openModalEntidad(!modalEntidad)
                   }}
                 />
                 {juzgado && <Entidad datos={juzgado} />}
@@ -131,7 +153,7 @@ export default function Home() {
             </li>
           </ul>
           {modalEntidad && (
-            <div className='absolute top-0 left-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center sm:scale-105 mx-5 sm:mx-0'>
+            <div className='absolute top-0 left-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center sm:scale-110 mx-5 sm:mx-0'>
               <button
                 className='z-50 rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-3 border transition'
                 onClick={() => {
@@ -153,7 +175,7 @@ export default function Home() {
                   />
                 </svg>
               </button>
-              <ol className='flex flex-wrap p-4 justify-center sm:justify-between items-center gap-4 overflow-auto text-xs scrollbar'>
+              <ol className='flex flex-wrap p-4 justify-center gap-4 overflow-auto text-xs scrollbar'>
                 <li
                   className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
                   onClick={() => {
@@ -210,102 +232,6 @@ export default function Home() {
                     openModalEntidad(!modalEntidad)
                   }}
                 >
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Capital y Central
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Capital y Central
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Capital y Central
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Capital y Central
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
                   Concepción y Alto Paraguay
                 </li>
                 <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>

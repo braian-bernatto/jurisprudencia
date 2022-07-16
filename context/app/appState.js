@@ -6,7 +6,6 @@ import {
   MODAL_ENTIDAD,
   URL_PDF,
   ENTIDAD_SELECTED,
-  MIEMBROS,
   ENTIDADES
 } from '../../types'
 
@@ -53,13 +52,6 @@ const AppState = ({ children }) => {
     })
   }
 
-  const miembrosHandler = miembros => {
-    dispatch({
-      type: MIEMBROS,
-      payload: miembros
-    })
-  }
-
   const entidadesHandler = datos => {
     dispatch({
       type: ENTIDADES,
@@ -74,7 +66,6 @@ const AppState = ({ children }) => {
         modalEntidad: state.modalEntidad,
         urlPdf: state.urlPdf,
         entidadSelected: state.entidadSelected,
-        miembros: state.miembros,
         tsje: state.tsje,
         tribunal: state.tribunal,
         juzgado: state.juzgado,
@@ -82,7 +73,6 @@ const AppState = ({ children }) => {
         openModalEntidad,
         urlPdfHandler,
         selectEntidad,
-        miembrosHandler,
         entidadesHandler
       }}
     >
