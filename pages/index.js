@@ -196,6 +196,13 @@ export default function Home() {
                     entidadNombre: 'Juzgado de Concepción y Alto Paraguay',
                     miembros: [{ nombre: 'Luis Chaco', cargo: 'Juez' }]
                   }
+                },
+                {
+                  type: 'JUZGADO',
+                  data: {
+                    entidadNombre: 'Juzgado de Bahía Negra',
+                    miembros: [{ nombre: 'Ramiro Ocampos', cargo: 'Juez' }]
+                  }
                 }
               ]}
             />

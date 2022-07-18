@@ -26,7 +26,12 @@ const Listado = () => {
         </thead>
         <tbody>
           {resoluciones.map((resolucion, index) => (
-            <tr key={index} className='dark:bg-gray-600 border-b'>
+            <tr
+              key={index}
+              className={`dark:bg-gray-600 ${
+                index < resoluciones.length - 1 ? 'border-b' : ''
+              }`}
+            >
               <td className='cursor-pointer transition text-center'>
                 <div className='flex justify-around gap-2 items-center overflow-hidden'>
                   <svg
