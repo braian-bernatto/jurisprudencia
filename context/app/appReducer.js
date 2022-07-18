@@ -3,7 +3,8 @@ import {
   MODAL_ENTIDAD,
   URL_PDF,
   ENTIDAD_SELECTED,
-  ENTIDADES
+  ENTIDADES,
+  RESOLUCIONES
 } from '../../types'
 
 export default (state, action) => {
@@ -30,6 +31,12 @@ export default (state, action) => {
       return {
         ...state,
         entidadSelected: action.payload
+      }
+
+    case RESOLUCIONES:
+      return {
+        ...state,
+        resoluciones: action.payload
       }
 
     case ENTIDADES:

@@ -6,7 +6,8 @@ import {
   MODAL_ENTIDAD,
   URL_PDF,
   ENTIDAD_SELECTED,
-  ENTIDADES
+  ENTIDADES,
+  RESOLUCIONES
 } from '../../types'
 
 const AppState = ({ children }) => {
@@ -16,6 +17,7 @@ const AppState = ({ children }) => {
     urlPdf: '',
     entidadSelected: '',
     miembros: [],
+    resoluciones: [],
     tsje: null,
     tribunal: null,
     juzgado: null
@@ -59,6 +61,59 @@ const AppState = ({ children }) => {
     })
   }
 
+  const getResoluciones = async () => {
+    try {
+      const respuesta = [
+        {
+          url: './uploads/git.pdf',
+          tipoResolucion: 'Auto Interlocutorio',
+          nroResolucion: 144,
+          fechaResolucion: '01/02/2022',
+          sala: 1,
+          materia: 'Electoral',
+          accionResuelta: 'Se resulve algo interesante',
+          preopinante: 'Braian Bernatto',
+          resultado: 'Hace lugar',
+          entidad: 'TSJE',
+          analisis: 'Un análisis interesante'
+        },
+        {
+          url: './uploads/clas.pdf',
+          tipoResolucion: 'Auto Interlocutorio',
+          nroResolucion: 144,
+          fechaResolucion: '01/02/2022',
+          sala: 1,
+          materia: 'Electoral',
+          accionResuelta: 'Se resulve algo interesante',
+          preopinante: 'Braian Bernatto',
+          resultado: 'Hace lugar',
+          entidad: 'TSJE',
+          analisis: 'Un análisis interesante'
+        },
+        {
+          url: './uploads/react.pdf',
+          tipoResolucion: 'Auto Interlocutorio',
+          nroResolucion: 144,
+          fechaResolucion: '01/02/2022',
+          sala: 1,
+          materia: 'Electoral',
+          accionResuelta: 'Se resulve algo interesante',
+          preopinante: 'Braian Bernatto',
+          resultado: 'Hace lugar',
+          entidad: 'TSJE',
+          analisis: 'Un análisis interesante'
+        }
+      ]
+
+      dispatch({
+        type: RESOLUCIONES,
+        payload: respuesta
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -69,11 +124,13 @@ const AppState = ({ children }) => {
         tsje: state.tsje,
         tribunal: state.tribunal,
         juzgado: state.juzgado,
+        resoluciones: state.resoluciones,
         openModalPdf,
         openModalEntidad,
         urlPdfHandler,
         selectEntidad,
-        entidadesHandler
+        entidadesHandler,
+        getResoluciones
       }}
     >
       {children}

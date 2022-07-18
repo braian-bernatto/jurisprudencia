@@ -23,10 +23,12 @@ export default function Home() {
     openModalEntidad,
     openModalPdf,
     selectEntidad,
-    entidadesHandler
+    entidadesHandler,
+    getResoluciones
   } = AppContext
 
   useEffect(() => {
+    getResoluciones()
     entidadesHandler({
       type: 'TSJE',
       data: {
@@ -124,14 +126,14 @@ export default function Home() {
             <li
               key={3}
               className={`relative ${
-                entidadSelected === 'JUZGADOS' ? 'selected' : ''
+                entidadSelected === 'JUZGADO' ? 'selected' : ''
               }`}
             >
               <label className='flex justify-center'>
                 <input
                   className='hidden'
                   type='radio'
-                  value='JUZGADOS'
+                  value='JUZGADO'
                   name='entidad'
                   onClick={e => {
                     selectEntidad(
@@ -149,7 +151,7 @@ export default function Home() {
                   }}
                 />
                 {juzgado && <Entidad datos={juzgado} />}
-                {entidadSelected === 'JUZGADOS' ? <Selected /> : ''}
+                {entidadSelected === 'JUZGADO' ? <Selected /> : ''}
               </label>
             </li>
           </ul>
@@ -185,7 +187,7 @@ export default function Home() {
               ]}
             />
           )}
-          {modalEntidad && entidadSelected === 'JUZGADOS' && (
+          {modalEntidad && entidadSelected === 'JUZGADO' && (
             <ModalEntidad
               data={[
                 {
