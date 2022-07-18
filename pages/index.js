@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import Listado from '../components/Listado'
 import Selected from '../components/Selected'
 import PdfDocument from '../components/PdfDocument'
+import ModalEntidad from '../components/ModalEntidad'
 
 export default function Home() {
   // extraer state de aplicacion
@@ -152,129 +153,50 @@ export default function Home() {
               </label>
             </li>
           </ul>
-          {modalEntidad && (
-            <div className='absolute top-0 left-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center sm:scale-110 mx-5 sm:mx-0'>
-              <button
-                className='z-50 rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-3 border transition'
-                onClick={() => {
-                  openModalEntidad(!modalEntidad)
-                }}
-              >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-4 w-4'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                </svg>
-              </button>
-              <ol className='flex flex-wrap p-4 justify-center gap-4 overflow-auto text-xs scrollbar'>
-                <li
-                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
-                  onClick={() => {
-                    entidadesHandler({
-                      type: 'TRIBUNAL',
-                      data: {
-                        entidadNombre: 'Tribunal Electoral Capital y Central',
-                        miembros: [
-                          { nombre: 'Hugo Caceres', cargo: 'Presidente' },
-                          {
-                            nombre: 'Fernando Chavez',
-                            cargo: 'Vicepresidente'
-                          },
-                          { nombre: 'Denis Caceres', cargo: 'Vocal' }
-                        ]
-                      }
-                    })
-                    openModalEntidad(!modalEntidad)
-                  }}
-                >
-                  Capital y Central
-                </li>
-                <li
-                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
-                  onClick={() => {
-                    entidadesHandler({
-                      type: 'TRIBUNAL',
-                      data: {
-                        entidadNombre:
-                          'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
-                        miembros: [
-                          { nombre: 'Diego Caceres', cargo: 'Presidente' },
-                          { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
-                          { nombre: 'Kathy Caceres', cargo: 'Vocal' }
-                        ]
-                      }
-                    })
-                    openModalEntidad(!modalEntidad)
-                  }}
-                >
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li
-                  className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'
-                  value={[{ nombre: 'Luis Chaco', cargo: 'Juez' }]}
-                  onClick={() => {
-                    entidadesHandler({
-                      type: 'JUZGADO',
-                      data: {
-                        entidadNombre: 'Juzgado de Concepción y Alto Paraguay',
-                        miembros: [{ nombre: 'Luis Chaco', cargo: 'Juez' }]
-                      }
-                    })
-                    openModalEntidad(!modalEntidad)
-                  }}
-                >
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Capital y Central
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Paraguarí, Cordillera, Pdte. Hayes y Boquerón
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Concepción y Alto Paraguay
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Guairá y Caazapá
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Itapúa
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Misiones
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Alto Paraná y Canindeyú
-                </li>
-                <li className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none'>
-                  Ñeembucú
-                </li>
-              </ol>
-            </div>
+          {modalEntidad && entidadSelected === 'TRIBUNAL ELECTORAL' && (
+            <ModalEntidad
+              data={[
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Kathy Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                }
+              ]}
+            />
+          )}
+          {modalEntidad && entidadSelected === 'JUZGADOS' && (
+            <ModalEntidad
+              data={[
+                {
+                  type: 'JUZGADO',
+                  data: {
+                    entidadNombre: 'Juzgado de Concepción y Alto Paraguay',
+                    miembros: [{ nombre: 'Luis Chaco', cargo: 'Juez' }]
+                  }
+                }
+              ]}
+            />
           )}
         </div>
         <Filtro />
