@@ -1,6 +1,11 @@
-import React from 'react'
+import { useContext } from 'react'
+import appContext from '../context/app/appContext'
 
 const Filtro = () => {
+  // extraer state de aplicacion
+  const AppContext = useContext(appContext)
+  const { years } = AppContext
+
   return (
     <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
       <span className='flex w-full justify-center items-center'>
@@ -62,24 +67,15 @@ const Filtro = () => {
           >
             --Seleccionar--
           </option>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='1'
-          >
-            2022
-          </option>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='2'
-          >
-            2021
-          </option>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='3'
-          >
-            2020
-          </option>
+          {years.map((year, index) => (
+            <option
+              key={index}
+              className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+              value='1'
+            >
+              {year}
+            </option>
+          ))}
         </select>
       </div>
 

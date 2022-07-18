@@ -7,7 +7,8 @@ import {
   URL_PDF,
   ENTIDAD_SELECTED,
   ENTIDADES,
-  RESOLUCIONES
+  RESOLUCIONES,
+  YEARS
 } from '../../types'
 
 const AppState = ({ children }) => {
@@ -20,7 +21,8 @@ const AppState = ({ children }) => {
     resoluciones: [],
     tsje: null,
     tribunal: null,
-    juzgado: null
+    juzgado: null,
+    years: []
   }
 
   //definir reducer
@@ -65,17 +67,18 @@ const AppState = ({ children }) => {
     try {
       const respuesta = [
         {
-          url: './uploads/git.pdf',
-          tipoResolucion: 'Auto Interlocutorio',
-          nroResolucion: 144,
-          fechaResolucion: '01/02/2022',
+          url: './uploads/res.pdf',
+          tipoResolucion: 'Acuerdo y sentencia',
+          nroResolucion: 8,
+          fechaResolucion: '08/07/2022',
           sala: 1,
           materia: 'Electoral',
-          accionResuelta: 'Se resulve algo interesante',
-          preopinante: 'Braian Bernatto',
+          accionResuelta: 'Reconocimiento de concertación',
+          preopinante: 'Jaime Bestard',
           resultado: 'Hace lugar',
           entidad: 'TSJE',
-          analisis: 'Un análisis interesante'
+          analisis:
+            'Se habilita la utilización del padrón nacional para las concertaciones'
         },
         {
           url: './uploads/clas.pdf',
@@ -114,6 +117,19 @@ const AppState = ({ children }) => {
     }
   }
 
+  const getYears = async () => {
+    try {
+      const respuesta = [2022, 2021, 2020, 2019]
+
+      dispatch({
+        type: YEARS,
+        payload: respuesta
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -125,12 +141,14 @@ const AppState = ({ children }) => {
         tribunal: state.tribunal,
         juzgado: state.juzgado,
         resoluciones: state.resoluciones,
+        years: state.years,
         openModalPdf,
         openModalEntidad,
         urlPdfHandler,
         selectEntidad,
         entidadesHandler,
-        getResoluciones
+        getResoluciones,
+        getYears
       }}
     >
       {children}

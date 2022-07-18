@@ -24,19 +24,21 @@ export default function Home() {
     openModalPdf,
     selectEntidad,
     entidadesHandler,
-    getResoluciones
+    getResoluciones,
+    getYears
   } = AppContext
 
   useEffect(() => {
+    getYears()
     getResoluciones()
     entidadesHandler({
       type: 'TSJE',
       data: {
         entidadNombre: 'TSJE',
         miembros: [
-          { nombre: 'Hugo Caceres', cargo: 'Presidente' },
-          { nombre: 'Fernando Chavez', cargo: 'Vicepresidente' },
-          { nombre: 'Denis Caceres', cargo: 'Vocal' }
+          { nombre: 'Jaime José Bestard Duschek ', cargo: 'Presidente' },
+          { nombre: 'Jorge Bogarín González', cargo: 'Vicepresidente' },
+          { nombre: 'César Emilio Rossel', cargo: 'Vocal' }
         ]
       }
     })
@@ -180,7 +182,7 @@ export default function Home() {
                     miembros: [
                       { nombre: 'Diego Caceres', cargo: 'Presidente' },
                       { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
-                      { nombre: 'Kathy Caceres', cargo: 'Vocal' }
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
                     ]
                   }
                 }
@@ -201,7 +203,7 @@ export default function Home() {
                   type: 'JUZGADO',
                   data: {
                     entidadNombre: 'Juzgado de Bahía Negra',
-                    miembros: [{ nombre: 'Ramiro Ocampos', cargo: 'Juez' }]
+                    miembros: [{ nombre: 'Denis Chavez', cargo: 'Juez' }]
                   }
                 }
               ]}

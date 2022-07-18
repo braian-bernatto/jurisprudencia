@@ -4,7 +4,8 @@ import {
   URL_PDF,
   ENTIDAD_SELECTED,
   ENTIDADES,
-  RESOLUCIONES
+  RESOLUCIONES,
+  YEARS
 } from '../../types'
 
 export default (state, action) => {
@@ -37,6 +38,12 @@ export default (state, action) => {
       return {
         ...state,
         resoluciones: action.payload
+      }
+
+    case YEARS:
+      return {
+        ...state,
+        years: action.payload
       }
 
     case ENTIDADES:
