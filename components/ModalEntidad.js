@@ -6,7 +6,7 @@ const ModalEntidad = ({ data }) => {
   const AppContext = useContext(appContext)
   const { modalEntidad, openModalEntidad, entidadesHandler } = AppContext
   return (
-    <div className='absolute top-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center mx-5 sm:mx-0 h-full'>
+    <div className='absolute top-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center mx-5 sm:mx-0 items-center h-full'>
       <button
         className='z-50 rounded-full p-1 bg-white dark:text-gray-700 shadow-md absolute -top-3 border transition'
         onClick={() => {
@@ -32,7 +32,7 @@ const ModalEntidad = ({ data }) => {
         {data.map((entidad, index) => (
           <li
             key={index}
-            className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none text-center self-start'
+            className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full flex justify-center items-center border hover:scale-110 cursor-pointer transition select-none text-center'
             onClick={() => {
               entidadesHandler(entidad)
               openModalEntidad(!modalEntidad)
