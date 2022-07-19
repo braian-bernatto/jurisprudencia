@@ -185,6 +185,292 @@ export default function Home() {
                       { nombre: 'Luis Caceres', cargo: 'Vocal' }
                     ]
                   }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre: 'Tribunal Electoral Capital y Central',
+                    miembros: [
+                      { nombre: 'Hugo Caceres', cargo: 'Presidente' },
+                      {
+                        nombre: 'Fernando Chavez',
+                        cargo: 'Vicepresidente'
+                      },
+                      { nombre: 'Denis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
+                },
+                {
+                  type: 'TRIBUNAL',
+                  data: {
+                    entidadNombre:
+                      'Tribunal Electoral de Paraguarí, Cordillera, Pdte. Hayes y Boquerón',
+                    miembros: [
+                      { nombre: 'Diego Caceres', cargo: 'Presidente' },
+                      { nombre: 'Denis Chavez', cargo: 'Vicepresidente' },
+                      { nombre: 'Luis Caceres', cargo: 'Vocal' }
+                    ]
+                  }
                 }
               ]}
             />
