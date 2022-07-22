@@ -94,7 +94,7 @@ const AppState = ({ children }) => {
           analisis: 'Un análisis interesante'
         },
         {
-          url: './uploads/react.pdf',
+          url: 'https://www.orimi.com/pdf-test.pdf',
           tipoResolucion: 'Auto Interlocutorio',
           nroResolucion: 144,
           fechaResolucion: '01/02/2022',
