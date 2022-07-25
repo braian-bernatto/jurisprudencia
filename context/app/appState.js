@@ -81,7 +81,7 @@ const AppState = ({ children }) => {
             'Se habilita la utilización del padrón nacional para las concertaciones'
         },
         {
-          url: 'http://localhost:4000/react',
+          url: 'http://localhost:4000/upload/react',
           tipoResolucion: 'Auto Interlocutorio',
           nroResolucion: 144,
           fechaResolucion: '01/02/2022',
@@ -94,7 +94,7 @@ const AppState = ({ children }) => {
           analisis: 'Un análisis interesante'
         },
         {
-          url: 'http://localhost:4000/git',
+          url: 'http://localhost:4000/upload/git',
           tipoResolucion: 'Auto Interlocutorio',
           nroResolucion: 144,
           fechaResolucion: '01/02/2022',
