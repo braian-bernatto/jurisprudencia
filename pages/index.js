@@ -20,42 +20,19 @@ export default function Home() {
     tsje,
     tribunal,
     juzgado,
+    entidades,
     openModalEntidad,
-    openModalPdf,
     selectEntidad,
     entidadesHandler,
     getResoluciones,
+    getTipoEntidades,
     getYears
   } = AppContext
 
   useEffect(() => {
     getYears()
     getResoluciones()
-    entidadesHandler({
-      type: 'TSJE',
-      data: {
-        entidadNombre: 'TSJE',
-        miembros: [
-          { nombre: 'Jaime José Bestard Duschek ', cargo: 'Presidente' },
-          { nombre: 'Jorge Bogarín González', cargo: 'Vicepresidente' },
-          { nombre: 'César Emilio Rossel', cargo: 'Vocal' }
-        ]
-      }
-    })
-    entidadesHandler({
-      type: 'TRIBUNAL',
-      data: {
-        entidadNombre: 'TRIBUNAL ELECTORAL',
-        miembros: []
-      }
-    })
-    entidadesHandler({
-      type: 'JUZGADO',
-      data: {
-        entidadNombre: 'JUZGADO',
-        miembros: []
-      }
-    })
+    getTipoEntidades()
   }, [])
 
   return (
@@ -72,90 +49,36 @@ export default function Home() {
       <main className='flex flex-col w-full justify-center items-center mt-10 gap-4'>
         <div className='flex flex-wrap gap-4 justify-center items-center relative'>
           <ul className='flex flex-wrap gap-4 justify-center relative'>
-            <li
-              key={1}
-              className={`relative ${
-                entidadSelected === 'TSJE' ? 'selected' : ''
-              }`}
-            >
-              <label className='flex justify-center'>
-                <input
-                  className='hidden'
-                  type='radio'
-                  value='TSJE'
-                  name='entidad'
-                  onClick={e =>
-                    selectEntidad(
-                      e.target.value === entidadSelected ? '' : e.target.value
-                    )
-                  }
-                />
-                {tsje && <Entidad datos={tsje} />}
-                {entidadSelected === 'TSJE' ? <Selected /> : ''}
-              </label>
-            </li>
-            <li
-              key={2}
-              className={`relative ${
-                entidadSelected === 'TRIBUNAL ELECTORAL' ? 'selected' : ''
-              }`}
-            >
-              <label className='flex justify-center'>
-                <input
-                  className='hidden'
-                  type='radio'
-                  value='TRIBUNAL ELECTORAL'
-                  name='entidad'
-                  onClick={e => {
-                    selectEntidad(
-                      e.target.value === entidadSelected ? '' : e.target.value
-                    )
-                    e.target.value === entidadSelected
-                      ? entidadesHandler({
-                          type: 'TRIBUNAL',
-                          data: {
-                            entidadNombre: 'TRIBUNAL ELECTORAL',
-                            miembros: []
-                          }
-                        })
-                      : openModalEntidad(!modalEntidad)
-                  }}
-                />
-                {tribunal && <Entidad datos={tribunal} />}
-                {entidadSelected === 'TRIBUNAL ELECTORAL' ? <Selected /> : ''}
-              </label>
-            </li>
-            <li
-              key={3}
-              className={`relative ${
-                entidadSelected === 'JUZGADO' ? 'selected' : ''
-              }`}
-            >
-              <label className='flex justify-center'>
-                <input
-                  className='hidden'
-                  type='radio'
-                  value='JUZGADO'
-                  name='entidad'
-                  onClick={e => {
-                    selectEntidad(
-                      e.target.value === entidadSelected ? '' : e.target.value
-                    )
-                    e.target.value === entidadSelected
-                      ? entidadesHandler({
-                          type: 'JUZGADO',
-                          data: {
-                            entidadNombre: 'JUZGADO',
-                            miembros: []
-                          }
-                        })
-                      : openModalEntidad(!modalEntidad)
-                  }}
-                />
-                {juzgado && <Entidad datos={juzgado} />}
-                {entidadSelected === 'JUZGADO' ? <Selected /> : ''}
-              </label>
-            </li>
+            {entidades.map(entidad => (
+              <li
+                key={entidad.tipo_entidad_id}
+                className={`relative ${
+                  entidadSelected === entidad.tipo_entidad_descri
+                    ? 'selected'
+                    : ''
+                }`}
+              >
+                <label className='flex justify-center'>
+                  <input
+                    className='hidden'
+                    type='radio'
+                    value={entidad.tipo_entidad_descri}
+                    name='entidad'
+                    onClick={e =>
+                      selectEntidad(
+                        e.target.value === entidadSelected ? '' : e.target.value
+                      )
+                    }
+                  />
+                  <Entidad datos={entidad} />
+                  {entidadSelected === entidad.tipo_entidad_descri ? (
+                    <Selected />
+                  ) : (
+                    ''
+                  )}
+                </label>
+              </li>
+            ))}
           </ul>
           {modalEntidad && entidadSelected === 'TRIBUNAL ELECTORAL' && (
             <ModalEntidad

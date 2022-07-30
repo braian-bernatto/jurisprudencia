@@ -3,6 +3,7 @@ import {
   MODAL_ENTIDAD,
   URL_PDF,
   ENTIDAD_SELECTED,
+  TIPO_ENTIDADES,
   ENTIDADES,
   RESOLUCIONES,
   YEARS
@@ -44,6 +45,12 @@ export default (state, action) => {
       return {
         ...state,
         years: action.payload
+      }
+
+    case TIPO_ENTIDADES:
+      return {
+        ...state,
+        entidades: action.payload
       }
 
     case ENTIDADES:

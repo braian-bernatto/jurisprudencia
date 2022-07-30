@@ -16,7 +16,7 @@ const Entidad = ({ datos }) => {
             </svg>
           </span>
           <h1 className='border font-bold rounded-md px-3 shadow-md dark:border-none dark:bg-gray-600 text-center'>
-            {datos.entidadNombre}
+            {datos.tipo_entidad_descri}
           </h1>
           <span className='w-full border-b'></span>
           <div className='w-full text-xs flex flex-col gap-6 mt-5 text-center'>

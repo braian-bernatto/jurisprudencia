@@ -5,7 +5,6 @@ const Listado = () => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
   const { modalPdf, resoluciones, openModalPdf, urlPdfHandler } = AppContext
-
   return (
     <div className='overflow-y-auto overflow-x-auto overflow-hidden rounded-md border dark:border-gray-700 shadow-md w-full lg:w-3/4 dark:shadow-gray-800 scrollbar'>
       <table className='w-full border-collapse table-auto whitespace-no-wrap bg-white dark:bg-gray-700 text-xs'>
@@ -40,7 +39,9 @@ const Listado = () => {
                     viewBox='0 0 20 20'
                     fill='currentColor'
                     onClick={() => {
-                      urlPdfHandler(resolucion.url)
+                      urlPdfHandler(
+                        `${process.env.backendURL + resolucion.resolucion_url}`
+                      )
                       openModalPdf(!modalPdf)
                     }}
                   >
@@ -51,7 +52,12 @@ const Listado = () => {
                       clipRule='evenodd'
                     />
                   </svg>
-                  <a href={resolucion.url} download={true}>
+                  <a
+                    href={`${
+                      process.env.backendURL + resolucion.resolucion_url
+                    }`}
+                    download={true}
+                  >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       className='h-9 w-9 hover:scale-110 hover:text-teal-600'
@@ -69,16 +75,22 @@ const Listado = () => {
                   </a>
                 </div>
               </td>
-              <td className='pl-2'>{resolucion.tipoResolucion}</td>
-              <td className='pl-2'>{resolucion.nroResolucion}</td>
-              <td className='pl-2'>{resolucion.fechaResolucion}</td>
-              <td className='pl-2'>{resolucion.sala}</td>
-              <td className='pl-2'>{resolucion.materia}</td>
-              <td className='pl-2'>{resolucion.accionResuelta}</td>
+              <td className='pl-2'>{resolucion.tipo_resolucion_descri}</td>
+              <td className='pl-2'>{resolucion.resolucion_nro}</td>
+              <td className='pl-2'>
+                {isNaN(Date.parse(resolucion.resolucion_fecha))
+                  ? 'sin datos'
+                  : new Date(resolucion.resolucion_fecha).toLocaleDateString(
+                      'en-GB'
+                    )}
+              </td>
+              <td className='pl-2'>{resolucion.secretaria_nro}</td>
+              <td className='pl-2'>{resolucion.materia_nombre}</td>
+              <td className='pl-2'>{resolucion.resolucion_accion_resuelta}</td>
               <td className='pl-2'>{resolucion.preopinante}</td>
-              <td className='pl-2'>{resolucion.resultado}</td>
-              <td className='pl-2'>{resolucion.entidad}</td>
-              <td className='pl-2'>{resolucion.analisis}</td>
+              <td className='pl-2'>{resolucion.resultado_descri}</td>
+              <td className='pl-2'>{resolucion.entidad_nombre}</td>
+              <td className='pl-2'>{resolucion.expediente_observacion}</td>
             </tr>
           ))}
         </tbody>

@@ -57,7 +57,7 @@ const PdfDocument = () => {
           className='pdf-document rounded-md overflow-hidden shadow-2xl border dark:border-none'
           scale={4}
           renderTextLayer={false}
-          width='200'
+          width={200}
           loading={Spinner}
         />
         <div className='buttons absolute bottom-5 rounded-full shadow-md bg-white dark:bg-gray-700 opacity-0 flex transition gap-1 h-12'>

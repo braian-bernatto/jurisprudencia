@@ -1,11 +1,13 @@
 import appContext from './appContext'
 import React, { useReducer } from 'react'
 import appReducer from './appReducer'
+import clienteAxios from '../../config/axios'
 import {
   MODAL_PDF,
   MODAL_ENTIDAD,
   URL_PDF,
   ENTIDAD_SELECTED,
+  TIPO_ENTIDADES,
   ENTIDADES,
   RESOLUCIONES,
   YEARS
@@ -17,6 +19,7 @@ const AppState = ({ children }) => {
     modalEntidad: false,
     urlPdf: '',
     entidadSelected: '',
+    entidades: [],
     miembros: [],
     resoluciones: [],
     tsje: null,
@@ -65,52 +68,22 @@ const AppState = ({ children }) => {
 
   const getResoluciones = async () => {
     try {
-      const respuesta = [
-        {
-          url: './uploads/res.pdf',
-          tipoResolucion: 'Acuerdo y sentencia',
-          nroResolucion: 8,
-          fechaResolucion: '08/07/2022',
-          sala: 1,
-          materia: 'Electoral',
-          accionResuelta: 'Reconocimiento de concertación',
-          preopinante: 'Jaime Bestard',
-          resultado: 'Hace lugar',
-          entidad: 'TSJE',
-          analisis:
-            'Se habilita la utilización del padrón nacional para las concertaciones'
-        },
-        {
-          url: 'http://localhost:4000/upload/react',
-          tipoResolucion: 'Auto Interlocutorio',
-          nroResolucion: 144,
-          fechaResolucion: '01/02/2022',
-          sala: 1,
-          materia: 'Electoral',
-          accionResuelta: 'Se resuelve algo interesante',
-          preopinante: 'Braian Bernatto',
-          resultado: 'Hace lugar',
-          entidad: 'TSJE',
-          analisis: 'Un análisis interesante'
-        },
-        {
-          url: 'http://localhost:4000/upload/git',
-          tipoResolucion: 'Auto Interlocutorio',
-          nroResolucion: 144,
-          fechaResolucion: '01/02/2022',
-          sala: 1,
-          materia: 'Electoral',
-          accionResuelta: 'Se resuelve algo interesante',
-          preopinante: 'Braian Bernatto',
-          resultado: 'Hace lugar',
-          entidad: 'TSJE',
-          analisis: 'Un análisis interesante'
-        }
-      ]
-
+      const respuesta = await clienteAxios.get(`/resoluciones`)
       dispatch({
         type: RESOLUCIONES,
-        payload: respuesta
+        payload: respuesta.data.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getTipoEntidades = async () => {
+    try {
+      const respuesta = await clienteAxios.get(`/tipo-entidad`)
+      dispatch({
+        type: TIPO_ENTIDADES,
+        payload: respuesta.data.data
       })
     } catch (error) {
       console.log(error)
@@ -137,6 +110,7 @@ const AppState = ({ children }) => {
         modalEntidad: state.modalEntidad,
         urlPdf: state.urlPdf,
         entidadSelected: state.entidadSelected,
+        entidades: state.entidades,
         tsje: state.tsje,
         tribunal: state.tribunal,
         juzgado: state.juzgado,
@@ -147,6 +121,7 @@ const AppState = ({ children }) => {
         urlPdfHandler,
         selectEntidad,
         entidadesHandler,
+        getTipoEntidades,
         getResoluciones,
         getYears
       }}
