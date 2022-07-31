@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Entidad = ({ datos }) => {
+const Entidad = ({ datos, miembros }) => {
   return (
     <>
       <div className='w-full flex justify-center relative'>
@@ -17,26 +17,25 @@ const Entidad = ({ datos }) => {
           </span>
           <h1 className='border font-bold rounded-md px-3 shadow-md dark:border-none dark:bg-gray-600 text-center'>
             {datos.tipo_entidad_descri}
+            <br />
+            {miembros && miembros.entidad_nombre}
           </h1>
           <span className='w-full border-b'></span>
           <div className='w-full text-xs flex flex-col gap-6 mt-5 text-center'>
-            {datos.miembros
-              ? datos.miembros.length
-                ? datos.miembros.map((miembro, index) => (
-                    <div
-                      key={index}
-                      className='relative flex flex-col justify-center items-center'
-                    >
-                      <h2 className='absolute -top-4 dark:-top-3.5 shadow border dark:border-none rounded-t bg-white dark:bg-white dark:text-gray-700 px-1 z-0'>
-                        {miembro.cargo}
-                      </h2>
-                      <span className='font-semibold shadow border dark:border-none rounded-full px-2 z-10 bg-white dark:bg-gray-600'>
-                        {miembro.nombre}
-                      </span>
-                    </div>
-                  ))
-                : null
-              : null}
+            {miembros &&
+              miembros.miembros.map(miembro => (
+                <div
+                  key={miembro.persona_id}
+                  className='relative flex flex-col justify-center items-center'
+                >
+                  <h2 className='absolute -top-4 dark:-top-3.5 shadow border dark:border-none rounded-t bg-white dark:bg-white dark:text-gray-700 px-1 z-0'>
+                    {miembro.cargo_descri}
+                  </h2>
+                  <span className='font-semibold shadow border dark:border-none rounded-full px-2 z-10 bg-white dark:bg-gray-600'>
+                    {miembro.persona_nombre + ' ' + miembro.persona_apellido}
+                  </span>
+                </div>
+              ))}
           </div>
         </div>
       </div>

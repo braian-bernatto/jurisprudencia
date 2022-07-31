@@ -4,6 +4,7 @@ import {
   URL_PDF,
   ENTIDAD_SELECTED,
   TIPO_ENTIDADES,
+  ENTIDAD_SELECTED_DETAILS,
   ENTIDADES,
   RESOLUCIONES,
   YEARS
@@ -50,20 +51,33 @@ export default (state, action) => {
     case TIPO_ENTIDADES:
       return {
         ...state,
-        entidades: action.payload
+        tipoEntidades: action.payload
       }
 
     case ENTIDADES:
+      let entidad = action.payload.filter(
+        item => item.tipo_entidad_descri === 'TRIBUNAL SUPERIOR'
+      )
       return {
         ...state,
-        tsje: action.payload.type === 'TSJE' ? action.payload.data : state.tsje,
+        entidades: action.payload,
+        tsje: entidad[0]
+      }
+
+    case ENTIDAD_SELECTED_DETAILS:
+      return {
+        ...state,
+        tsje:
+          action.payload.tipo_entidad_descri === 'TRIBUNAL SUPERIOR'
+            ? action.payload
+            : state.tsje,
         tribunal:
-          action.payload.type === 'TRIBUNAL'
-            ? action.payload.data
+          action.payload.tipo_entidad_descri === 'TRIBUNAL ELECTORAL'
+            ? action.payload
             : state.tribunal,
         juzgado:
-          action.payload.type === 'JUZGADO'
-            ? action.payload.data
+          action.payload.tipo_entidad_descri === 'JUZGADO'
+            ? action.payload
             : state.juzgado
       }
 

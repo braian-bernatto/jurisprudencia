@@ -9,6 +9,7 @@ import {
   ENTIDAD_SELECTED,
   TIPO_ENTIDADES,
   ENTIDADES,
+  ENTIDAD_SELECTED_DETAILS,
   RESOLUCIONES,
   YEARS
 } from '../../types'
@@ -19,6 +20,7 @@ const AppState = ({ children }) => {
     modalEntidad: false,
     urlPdf: '',
     entidadSelected: '',
+    tipoEntidades: [],
     entidades: [],
     miembros: [],
     resoluciones: [],
@@ -61,7 +63,7 @@ const AppState = ({ children }) => {
 
   const entidadesHandler = datos => {
     dispatch({
-      type: ENTIDADES,
+      type: ENTIDAD_SELECTED_DETAILS,
       payload: datos
     })
   }
@@ -90,6 +92,18 @@ const AppState = ({ children }) => {
     }
   }
 
+  const getEntidades = async () => {
+    try {
+      const respuesta = await clienteAxios.get(`/entidades`)
+      dispatch({
+        type: ENTIDADES,
+        payload: respuesta.data.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getYears = async () => {
     try {
       const respuesta = [2022, 2021, 2020, 2019]
@@ -110,6 +124,7 @@ const AppState = ({ children }) => {
         modalEntidad: state.modalEntidad,
         urlPdf: state.urlPdf,
         entidadSelected: state.entidadSelected,
+        tipoEntidades: state.tipoEntidades,
         entidades: state.entidades,
         tsje: state.tsje,
         tribunal: state.tribunal,
@@ -122,6 +137,7 @@ const AppState = ({ children }) => {
         selectEntidad,
         entidadesHandler,
         getTipoEntidades,
+        getEntidades,
         getResoluciones,
         getYears
       }}

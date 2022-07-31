@@ -30,16 +30,16 @@ const ModalEntidad = ({ data }) => {
       </button>
       <div className='h-full w-full overflow-y-auto relative scrollbar'>
         <ol className='flex flex-wrap p-4 justify-center items-center gap-4 text-xs w-full'>
-          {data.map((entidad, index) => (
+          {data.map(entidad => (
             <li
-              key={index}
+              key={entidad.entidad_id}
               className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full border hover:scale-110 cursor-pointer transition select-none text-center w-full sm:w-auto'
               onClick={() => {
                 entidadesHandler(entidad)
                 openModalEntidad(!modalEntidad)
               }}
             >
-              {entidad.data.entidadNombre}
+              {entidad.entidad_nombre}
             </li>
           ))}
         </ol>
