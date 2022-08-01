@@ -1,134 +1,202 @@
 import { useContext } from 'react'
+import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
 import appContext from '../context/app/appContext'
+import clienteAxios from '../config/axios'
 
 const Filtro = () => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { years, tipoResoluciones, setBuscador, buscador } = AppContext
+  const { years, tipoResoluciones } = AppContext
+
+  const filtroSchema = Yup.object().shape({
+    anyText: Yup.string(),
+    resolucion: Yup.number(),
+    year: Yup.number().typeError('Elige una opción válida'),
+    tipoResolucion: Yup.number().typeError('Elige una opción válida')
+  })
+
+  const checkValues = async valores => {
+    console.log(valores)
+    // try {
+    //   const respuesta = await clienteAxios.post(url, valores)
+    //   console.log(respuesta)
+    // } catch (error) {
+    //   console.log(error.response.data)
+    // }
+  }
+
+  const focusNextInput = event => {
+    if (event.key.toLowerCase() === 'enter') {
+      const form = event.target.form
+      const index = [...form].indexOf(event.target)
+      form.elements[index + 1].focus()
+      event.preventDefault()
+    }
+  }
 
   return (
-    <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
-      <span className='flex w-full justify-center items-center'>
-        <form
-          className='flex justify-center bg-white dark:border-gray-700 dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800 mb-5 w-80'
-          onSubmit={e => {
-            e.preventDefault()
-          }}
-        >
-          <button aria-label='button' type='submit' className='mr-5'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-6 w-6'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+    <Formik
+      enableReinitialize={true}
+      initialValues={{
+        buscador: '',
+        nroResolucion: '',
+        year: '',
+        tipoResolucion: ''
+      }}
+      onSubmit={async (values, { resetForm }) => {
+        await checkValues(values)
+        resetForm()
+      }}
+      validationSchema={filtroSchema}
+    >
+      {({ errors, touched, setFieldValue }) => (
+        <Form className='w-full max-w-6xl flex flex-wrap gap-3 justify-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
+          <span className='flex w-full justify-center items-center'>
+            <div className='flex justify-center bg-white dark:border-gray-700 dark:bg-gray-700 items-center shadow-md border border-opacity-75 border-gray-300 rounded-lg px-2 sm:px-3 py-2 dark:shadow-gray-800 mb-5 w-80'>
+              <button aria-label='button' type='submit' className='mr-5'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  className='h-6 w-6'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  stroke='currentColor'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth='2'
+                    d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                  />
+                </svg>
+              </button>
+              <Field
+                type='text'
+                id='buscador'
+                name='buscador'
+                className='bg-transparent focus:outline-none text-xl'
+                onKeyDown={focusNextInput}
               />
-            </svg>
-          </button>
-          <input
-            type='text'
-            className='bg-transparent focus:outline-none text-xl'
-            onChange={e => setBuscador(e.target.value)}
-          />
-        </form>
-      </span>
+              {errors.buscador && touched.buscador ? (
+                <div>{errors.buscador}</div>
+              ) : null}
+            </div>
+          </span>
 
-      <div className='flex justify-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
-        <label
-          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
-          htmlFor='nroResolucion'
-        >
-          N° Resolución
-        </label>
-        <input
-          className='z-10 w-24 bg-transparent font-bold border-b-4 rounded text-center border-teal-600 focus:outline-none text-lg'
-          type='number'
-          id='nroResolucion'
-          name='nroResolucion'
-        />
-      </div>
-
-      <div className='select flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-xs relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
-        <label
-          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
-          htmlFor='year'
-        >
-          Año
-        </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center relative px-3'>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='--Seleccionar--'
-          >
-            --Seleccionar--
-          </option>
-          {years.map((year, index) => (
-            <option
-              key={index}
-              className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-              value={year}
+          <div className='flex justify-center font-semibold p-3 dark:bg-gray-700 shadow-md rounded-xl border max-w-md relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+            <label
+              className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+              htmlFor='nroResolucion'
             >
-              {year}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className='select flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-sm relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
-        <label
-          className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
-          htmlFor='tipoResolucion'
-        >
-          Tipo de Resolución
-        </label>
-        <select className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center px-4'>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='--Seleccione un tipo--'
-          >
-            --Seleccionar--
-          </option>
-          {tipoResoluciones.map(tipo => (
-            <option
-              key={tipo.tipo_resolucion_id}
-              className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-              value={tipo.tipo_resolucion_id}
-            >
-              {tipo.tipo_resolucion_descri}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className='w-full flex justify-center items-center font-bold relative'>
-        <button
-          aria-label='button'
-          type='submit'
-          className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition-transform hover:scale-105 bg-white dark:bg-gray-700 dark:border-gray-700 dark:shadow-gray-800'
-        >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-6 w-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+              N° Resolución
+            </label>
+            <Field
+              className='z-10 w-24 bg-transparent font-bold border-b-4 rounded text-center border-teal-600 focus:outline-none text-lg'
+              type='number'
+              id='nroResolucion'
+              name='nroResolucion'
+              onKeyDown={focusNextInput}
             />
-          </svg>
-        </button>
-      </div>
-    </div>
+            {errors.nroResolucion && touched.nroResolucion ? (
+              <div>{errors.nroResolucion}</div>
+            ) : null}
+          </div>
+
+          <div className='select flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-xs relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+            <label
+              className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+              htmlFor='year'
+            >
+              Año
+            </label>
+            <Field
+              className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center relative px-3'
+              as='select'
+              name='year'
+              id='year'
+              onChange={e => setFieldValue('year', +e.currentTarget.value)}
+            >
+              <option
+                className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+                value={null}
+              >
+                --Seleccionar--
+              </option>
+              {years.map((year, index) => (
+                <option
+                  key={index}
+                  className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+                  value={year}
+                >
+                  {year}
+                </option>
+              ))}
+            </Field>
+            {errors.year && touched.year ? <div>{errors.year}</div> : null}
+          </div>
+
+          <div className='select flex justify-center items-center font-semibold p-2 dark:bg-gray-700 shadow-md rounded-xl border max-w-sm relative bg-white dark:border-gray-700 dark:shadow-gray-800'>
+            <label
+              className='absolute -top-3 font-bold shadow border rounded-md bg-white dark:bg-white dark:text-gray-700 px-2'
+              htmlFor='tipoResolucion'
+            >
+              Tipo de Resolución
+            </label>
+            <Field
+              className='shadow appearance-none rounded p-2 font-bold focus:outline-none focus:shadow-outline text-xs uppercase bg-transparent border-b-4 border-teal-600 text-center px-4'
+              as='select'
+              name='tipoResolucion'
+              id='tipoResolucion'
+              onChange={e =>
+                setFieldValue('tipoResolucion', +e.currentTarget.value)
+              }
+            >
+              <option
+                className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+                value={null}
+              >
+                --Seleccionar--
+              </option>
+              {tipoResoluciones.map(tipo => (
+                <option
+                  key={tipo.tipo_resolucion_id}
+                  className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+                  value={tipo.tipo_resolucion_id}
+                >
+                  {tipo.tipo_resolucion_descri}
+                </option>
+              ))}
+            </Field>
+            {errors.tipoResolucion && touched.tipoResolucion ? (
+              <div>{errors.tipoResolucion}</div>
+            ) : null}
+          </div>
+
+          <div className='w-full flex justify-center items-center font-bold relative'>
+            <button
+              aria-label='button'
+              type='submit'
+              className='flex justify-center items-center border shadow-md rounded-xl p-2 w-36 transition-transform hover:scale-105 bg-white dark:bg-gray-700 dark:border-gray-700 dark:shadow-gray-800'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-6 w-6'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+                />
+              </svg>
+            </button>
+          </div>
+        </Form>
+      )}
+    </Formik>
   )
 }
 

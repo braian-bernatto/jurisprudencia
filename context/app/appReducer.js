@@ -7,7 +7,6 @@ import {
   TIPO_RESOLUCIONES,
   ENTIDAD_SELECTED_DETAILS,
   ENTIDADES,
-  BUSCADOR,
   RESOLUCIONES,
   YEARS
 } from '../../types'
@@ -60,12 +59,6 @@ export default (state, action) => {
       return {
         ...state,
         tipoResoluciones: action.payload
-      }
-
-    case BUSCADOR:
-      return {
-        ...state,
-        buscador: action.payload
       }
 
     case ENTIDADES:

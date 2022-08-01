@@ -11,7 +11,6 @@ import {
   TIPO_RESOLUCIONES,
   ENTIDAD_SELECTED_DETAILS,
   ENTIDADES,
-  BUSCADOR,
   RESOLUCIONES,
   YEARS
 } from '../../types'
@@ -30,7 +29,6 @@ const AppState = ({ children }) => {
     tsje: null,
     tribunal: null,
     juzgado: null,
-    buscador: '',
     years: []
   }
 
@@ -129,13 +127,6 @@ const AppState = ({ children }) => {
     })
   }
 
-  const setBuscador = data => {
-    dispatch({
-      type: BUSCADOR,
-      payload: data
-    })
-  }
-
   return (
     <appContext.Provider
       value={{
@@ -151,7 +142,6 @@ const AppState = ({ children }) => {
         juzgado: state.juzgado,
         resoluciones: state.resoluciones,
         years: state.years,
-        buscador: state.buscador,
         openModalPdf,
         openModalEntidad,
         urlPdfHandler,
@@ -161,8 +151,7 @@ const AppState = ({ children }) => {
         getTipoResoluciones,
         getEntidades,
         getResoluciones,
-        getYears,
-        setBuscador
+        getYears
       }}
     >
       {children}
