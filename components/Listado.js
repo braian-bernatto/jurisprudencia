@@ -86,11 +86,19 @@ const Listado = () => {
               </td>
               <td className='pl-2'>{resolucion.secretaria_nro}</td>
               <td className='pl-2'>{resolucion.materia_nombre}</td>
-              <td className='pl-2'>{resolucion.resolucion_accion_resuelta}</td>
+              <td className='pl-2'>
+                <div className='w-80'>
+                  {resolucion.resolucion_accion_resuelta}
+                </div>
+              </td>
               <td className='pl-2'>{resolucion.preopinante}</td>
               <td className='pl-2'>{resolucion.resultado_descri}</td>
-              <td className='pl-2'>{resolucion.entidad_nombre}</td>
-              <td className='pl-2'>{resolucion.expediente_observacion}</td>
+              <td className='pl-2'>
+                <div className='w-20'>{resolucion.entidad_nombre}</div>
+              </td>
+              <td className='pl-2'>
+                <div className='w-80'>{resolucion.expediente_observacion}</div>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -1,5 +1,5 @@
 import appContext from './appContext'
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import appReducer from './appReducer'
 import clienteAxios from '../../config/axios'
 import {
@@ -71,6 +71,7 @@ const AppState = ({ children }) => {
   const getResoluciones = async () => {
     try {
       const respuesta = await clienteAxios.get(`/resoluciones`)
+      getYears(respuesta.data.data)
       dispatch({
         type: RESOLUCIONES,
         payload: respuesta.data.data
@@ -104,17 +105,12 @@ const AppState = ({ children }) => {
     }
   }
 
-  const getYears = async () => {
-    try {
-      const respuesta = [2022, 2021, 2020, 2019]
-
-      dispatch({
-        type: YEARS,
-        payload: respuesta
-      })
-    } catch (error) {
-      console.log(error)
-    }
+  const getYears = data => {
+    let result = data.map(item => item.resolucion_year)
+    dispatch({
+      type: YEARS,
+      payload: result
+    })
   }
 
   return (

@@ -22,17 +22,16 @@ export default function Home() {
     juzgado,
     tipoEntidades,
     entidades,
+    resoluciones,
     openModalEntidad,
     selectEntidad,
     entidadesHandler,
     getResoluciones,
     getTipoEntidades,
-    getEntidades,
-    getYears
+    getEntidades
   } = AppContext
 
   useEffect(() => {
-    getYears()
     getResoluciones()
     getTipoEntidades()
     getEntidades()
