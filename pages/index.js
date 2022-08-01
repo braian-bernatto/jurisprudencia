@@ -22,18 +22,18 @@ export default function Home() {
     juzgado,
     tipoEntidades,
     entidades,
-    resoluciones,
     openModalEntidad,
-    selectEntidad,
-    entidadesHandler,
+    setEntidadSelected,
     getResoluciones,
     getTipoEntidades,
+    getTipoResoluciones,
     getEntidades
   } = AppContext
 
   useEffect(() => {
     getResoluciones()
     getTipoEntidades()
+    getTipoResoluciones()
     getEntidades()
   }, [])
 
@@ -67,7 +67,7 @@ export default function Home() {
                     value={entidad.tipo_entidad_descri}
                     name='entidad'
                     onClick={e => {
-                      selectEntidad(
+                      setEntidadSelected(
                         e.target.value === entidadSelected ? '' : e.target.value
                       )
                       entidad.tipo_entidad_descri !== 'TRIBUNAL SUPERIOR'

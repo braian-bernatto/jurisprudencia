@@ -4,8 +4,10 @@ import {
   URL_PDF,
   ENTIDAD_SELECTED,
   TIPO_ENTIDADES,
+  TIPO_RESOLUCIONES,
   ENTIDAD_SELECTED_DETAILS,
   ENTIDADES,
+  BUSCADOR,
   RESOLUCIONES,
   YEARS
 } from '../../types'
@@ -52,6 +54,18 @@ export default (state, action) => {
       return {
         ...state,
         tipoEntidades: action.payload
+      }
+
+    case TIPO_RESOLUCIONES:
+      return {
+        ...state,
+        tipoResoluciones: action.payload
+      }
+
+    case BUSCADOR:
+      return {
+        ...state,
+        buscador: action.payload
       }
 
     case ENTIDADES:

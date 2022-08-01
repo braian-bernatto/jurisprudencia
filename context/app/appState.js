@@ -8,8 +8,10 @@ import {
   URL_PDF,
   ENTIDAD_SELECTED,
   TIPO_ENTIDADES,
-  ENTIDADES,
+  TIPO_RESOLUCIONES,
   ENTIDAD_SELECTED_DETAILS,
+  ENTIDADES,
+  BUSCADOR,
   RESOLUCIONES,
   YEARS
 } from '../../types'
@@ -21,12 +23,14 @@ const AppState = ({ children }) => {
     urlPdf: '',
     entidadSelected: '',
     tipoEntidades: [],
+    tipoResoluciones: [],
     entidades: [],
     miembros: [],
     resoluciones: [],
     tsje: null,
     tribunal: null,
     juzgado: null,
+    buscador: '',
     years: []
   }
 
@@ -54,14 +58,14 @@ const AppState = ({ children }) => {
     })
   }
 
-  const selectEntidad = entidad => {
+  const setEntidadSelected = entidad => {
     dispatch({
       type: ENTIDAD_SELECTED,
       payload: entidad
     })
   }
 
-  const entidadesHandler = datos => {
+  const setEntidadSelectedDetails = datos => {
     dispatch({
       type: ENTIDAD_SELECTED_DETAILS,
       payload: datos
@@ -93,6 +97,18 @@ const AppState = ({ children }) => {
     }
   }
 
+  const getTipoResoluciones = async () => {
+    try {
+      const respuesta = await clienteAxios.get(`/tipo-resolucion`)
+      dispatch({
+        type: TIPO_RESOLUCIONES,
+        payload: respuesta.data.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const getEntidades = async () => {
     try {
       const respuesta = await clienteAxios.get(`/entidades`)
@@ -113,6 +129,13 @@ const AppState = ({ children }) => {
     })
   }
 
+  const setBuscador = data => {
+    dispatch({
+      type: BUSCADOR,
+      payload: data
+    })
+  }
+
   return (
     <appContext.Provider
       value={{
@@ -121,21 +144,25 @@ const AppState = ({ children }) => {
         urlPdf: state.urlPdf,
         entidadSelected: state.entidadSelected,
         tipoEntidades: state.tipoEntidades,
+        tipoResoluciones: state.tipoResoluciones,
         entidades: state.entidades,
         tsje: state.tsje,
         tribunal: state.tribunal,
         juzgado: state.juzgado,
         resoluciones: state.resoluciones,
         years: state.years,
+        buscador: state.buscador,
         openModalPdf,
         openModalEntidad,
         urlPdfHandler,
-        selectEntidad,
-        entidadesHandler,
+        setEntidadSelected,
+        setEntidadSelectedDetails,
         getTipoEntidades,
+        getTipoResoluciones,
         getEntidades,
         getResoluciones,
-        getYears
+        getYears,
+        setBuscador
       }}
     >
       {children}

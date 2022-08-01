@@ -4,7 +4,7 @@ import appContext from '../context/app/appContext'
 const Filtro = () => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { years } = AppContext
+  const { years, tipoResoluciones, setBuscador, buscador } = AppContext
 
   return (
     <div className='w-full max-w-6xl flex flex-wrap gap-3 justify-center shadow-md py-4 px-1 rounded-xl dark:shadow-gray-800 border dark:border-gray-700 text-xs'>
@@ -34,6 +34,7 @@ const Filtro = () => {
           <input
             type='text'
             className='bg-transparent focus:outline-none text-xl'
+            onChange={e => setBuscador(e.target.value)}
           />
         </form>
       </span>
@@ -71,7 +72,7 @@ const Filtro = () => {
             <option
               key={index}
               className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-              value='1'
+              value={year}
             >
               {year}
             </option>
@@ -93,18 +94,15 @@ const Filtro = () => {
           >
             --Seleccionar--
           </option>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='1'
-          >
-            Acuerdo y Sentencia
-          </option>
-          <option
-            className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
-            value='2'
-          >
-            Auto Interlocutorio
-          </option>
+          {tipoResoluciones.map(tipo => (
+            <option
+              key={tipo.tipo_resolucion_id}
+              className='font-bold rounded-md shadow dark:bg-gray-700 appearance-none text-center'
+              value={tipo.tipo_resolucion_id}
+            >
+              {tipo.tipo_resolucion_descri}
+            </option>
+          ))}
         </select>
       </div>
 

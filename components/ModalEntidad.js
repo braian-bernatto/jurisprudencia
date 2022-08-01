@@ -4,7 +4,8 @@ import appContext from '../context/app/appContext'
 const ModalEntidad = ({ data }) => {
   // extraer state de aplicacion
   const AppContext = useContext(appContext)
-  const { modalEntidad, openModalEntidad, entidadesHandler } = AppContext
+  const { modalEntidad, openModalEntidad, setEntidadSelectedDetails } =
+    AppContext
   return (
     <div className='absolute top-0 sm:w-full max-h-full bg-white dark:bg-gray-700 shadow-2xl z-20 rounded-md flex justify-center mx-5 sm:mx-0 items-center h-full'>
       <button
@@ -35,7 +36,7 @@ const ModalEntidad = ({ data }) => {
               key={entidad.entidad_id}
               className='bg-white dark:text-gray-700 shadow px-3 z-20 rounded-full border hover:scale-110 cursor-pointer transition select-none text-center w-full sm:w-auto'
               onClick={() => {
-                entidadesHandler(entidad)
+                setEntidadSelectedDetails(entidad)
                 openModalEntidad(!modalEntidad)
               }}
             >
