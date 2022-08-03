@@ -10,14 +10,27 @@ const Filtro = () => {
   const { years, tipoResoluciones } = AppContext
 
   const filtroSchema = Yup.object().shape({
-    anyText: Yup.string(),
-    resolucion: Yup.number(),
-    year: Yup.number().typeError('Elige una opción válida'),
-    tipoResolucion: Yup.number().typeError('Elige una opción válida')
+    anyText: Yup.string()
+      .nullable(true)
+      .transform((_, val) => (val === Number(val) ? val : null)),
+    resolucion: Yup.number()
+      .nullable(true)
+      .transform((_, val) => (val === Number(val) ? val : null)),
+    year: Yup.number()
+      .nullable(true)
+      .transform((_, val) => (val === Number(val) ? val : null)),
+    tipoResolucion: Yup.number()
+      .nullable(true)
+      .transform((_, val) => (val === Number(val) ? val : null))
   })
 
   const checkValues = async valores => {
-    console.log(valores)
+    const { buscador, nroResolucion, year, tipoResolucion } = valores
+    if (buscador || nroResolucion || year || tipoResolucion) {
+      console.log(valores)
+    } else {
+      console.log('Al menos carga un valor')
+    }
     // try {
     //   const respuesta = await clienteAxios.post(url, valores)
     //   console.log(respuesta)
@@ -46,7 +59,7 @@ const Filtro = () => {
       }}
       onSubmit={async (values, { resetForm }) => {
         await checkValues(values)
-        resetForm()
+        // resetForm()
       }}
       validationSchema={filtroSchema}
     >
